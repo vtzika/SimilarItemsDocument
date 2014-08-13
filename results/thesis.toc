@@ -20,7 +20,6 @@
 \contentsline {subsection}{\numberline {3.3.2}Maximal marginal relevance alternative 2}{16}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Maximal marginal relevance average last four}{16}{subsection.3.3.3}
 \contentsline {section}{\numberline {3.4}Late Data Fusion}{17}{section.3.4}
-\contentsline {section}{\numberline {3.5}Data fusion of diversified result lists}{17}{section.3.5}
 \contentsline {chapter}{\numberline {4}Experiment Design}{18}{chapter.4}
 \contentsline {section}{\numberline {4.1}Data and data gathering}{18}{section.4.1}
 \contentsline {section}{\numberline {4.2}Results Retrieval}{20}{section.4.2}

@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1407962070 "thesis.tex" "thesis.pdf" "thesis" 1407962071
+["pdflatex"] 1407962620 "thesis.tex" "thesis.pdf" "thesis" 1407962622
   "../chapters/1.Introduction.tex" 1407745653 11071 e7e71787d4155c8d6fb0408656d2397d ""
   "../chapters/2.RelatedWork.tex" 1405454649 7767 72b6f4a15e56dd90a0add5653ec2f653 ""
-  "../chapters/3.Method.tex" 1407956739 19670 a6fd5f16759e80259b2380d81e228152 ""
+  "../chapters/3.Method.tex" 1407962601 19767 d8ee3592d27068b5fbffb39998b8dc1c ""
   "../chapters/4.ExperimentalDesign.tex" 1405454868 20881 84e3984d4b09ace0ee98b456d643ac61 ""
   "../chapters/5.Results.tex" 1407962026 11476 806f629a653ed8213e68736c872d0e38 ""
   "../chapters/6.Analysis.tex" 1407962066 26232 c2efc3ff18f1d997c7cbc0932790add8 ""
@@ -59,13 +59,13 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/times.sty" 1156702453 857 6c716f26c5eadfb81029fcd6ce2d45e6 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "thesis.aux" 1407962071 39814 d3c85d1c6d6c0e97930a07e554e99a9f ""
-  "thesis.out" 1407962071 3588 38a771ba9b0b512e981ef10788b588d9 ""
+  "thesis.aux" 1407962621 40161 fd942c7a21c2b6a6f08b68d1f60a4ab3 ""
+  "thesis.out" 1407962621 3502 33b2033aae8aec717930a0bd289f95fd ""
   "thesis.tex" 1407756130 1255 d82ed7e495ef954bbd00e3c6b2b00503 ""
-  "thesis.toc" 1407962071 4968 2035da93ec53f7af7a9ccf866808767a ""
+  "thesis.toc" 1407962621 4869 23c686c76e777d7992d32e7106762735 ""
   (generated)
   "thesis.log"
   "thesis.toc"
   "thesis.pdf"
-  "thesis.aux"
   "thesis.out"
+  "thesis.aux"

@@ -8,13 +8,14 @@ Query modeling is the procedure to create a bag of words or a single word to rep
 
 \subsection{Source classified fields' query models}
 
-The source classified that the user just clicked is a great resource that indicates user's information need. Thus, important information can be extracted from the source classified for creating query models. Classifieds typically consisted of title, description and category. Some classifieds also consist of arguments. Title summarizes the contents of the classified. Description has more details of the classified. Category is the category that they classified is part of. Arguments are depended on the classified. In some cases is the size of a product or the color and it is not required to be filled in. Combination of contents' fields are mapped to queries and multiple query models are created (see table 1).
+The source classified that the user just clicked is a great resource that indicates user's information need. Thus, important information can be extracted from the source classified for creating query models. Classifieds typically consisted of title, description and category. Some classifieds also consist of arguments. Title summarizes the contents of the classified. Description has more details of the classified. Category is the category that they classified is part of. Arguments are depended on the classified. In some cases is the size of a product or the color and it is not required to be filled in. Combination of contents' fields are mapped to queries and multiple query models are created (see table \ref{table:QueryFields}).
 
 
 \begin{table}[H]
 \begin{center}
 \scriptsize
 \caption{Query models' explanation is presented. Explanation is given for the use of fields in the query model, log likelihood ratio (LLR), stemming and pseudo relevance feedback (PRF).}
+\label{table:QueryFields}
 \begin{tabular}{lccccr}
 \midrule
 Name & Fields & Stemming & LLR & PRF \\
@@ -62,13 +63,14 @@ The representativeness of the big corpus needs to be considered when comparing t
 We can create query models with the use of LLR using the top k words with the biggest LLR number. This means that we have to calculate LL for every word in a given classified.
 
 The method that we have to follow is the following:
-Given a visited classified as null corpora and a big dataset of classifieds as normative corpora that we wish to compare with, we produce a frequency list. This would be a word frequency list. For each word in the first frequency list we calculate the log- likelihood statistic. This is performed by constructing a contingency table see table 2.
+Given a visited classified as null corpora and a big dataset of classifieds as normative corpora that we wish to compare with, we produce a frequency list. This would be a word frequency list. For each word in the first frequency list we calculate the log- likelihood statistic. This is performed by constructing a contingency table see table \ref{table:contigency}.
 
 
 \begin{table}[H]
 \begin{center}
 \footnotesize
 \caption{Contingency table for Log likelihood calculation.}
+\label{table:contigency}
 \begin{tabular}{lccr}
 \toprule
 &  First Corpus & Second Corpus & Total \\
@@ -324,12 +326,13 @@ max : the maximum value for the ranked list
 
 \bigskip
 
-After the normalization of the score we merged all of the ranked lists. We consider the following late data fusion methods:
+After the normalization of the score we merged all of the ranked lists. We consider the following late data fusion methods explained on table \ref{table:LDFmethods}:
 \bigskip
 
 \begin{table}[H]
 \begin{center}
 \caption{Late data fusion methods explanation.}
+\label{table:LDFmethods}
 \begin{tabular}{lcc}
 \midrule
 Name &   & Explanation \\
@@ -347,9 +350,6 @@ WcombWW &   & WcombSUM * sum of individual weights \\
 \end{center}
 \end{table}
 
-
-\section{Data fusion of diversified result lists}
-
-All of the merged ranked lists are diversified with the diversification methods described in a previous section.
+Then, we diversify all of the merged ranked lists using the diversification methods described above.
 
 Next chapter will cover the explanation of our experimental design using the methods described in this chapter.
