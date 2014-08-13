@@ -1,0 +1,355 @@
+\chapter{Method}
+
+In this section, we describe the methods used in this approach.
+
+\section{Query modeling}
+
+Query modeling is the procedure to create a bag of words or a single word to represent the information need. This word (or bag of words) is the query. Query modeling creation involves the preprocessing step and the identification of tokens. Even if all previous steps are chosen and implemented to improve the accuracy of relevant results, the right query modeling will find highly related documents. The query can be consisted of the parts of a document in the case of existed structure or they can be consisted of phrases or selected terms. We explore three different kind of query models: a) query models created by the fields of the source classified, b) query models consisted of characteristic words of the source classified based on the log likelihood ratio of each word and c) queries created by the information given of an initially returned results (pseudo relevance feedback).
+
+\subsection{Source classified fields' query models}
+
+The source classified that the user just clicked is a great resource that indicates user's information need. Thus, important information can be extracted from the source classified for creating query models. Classifieds typically consisted of title, description and category. Some classifieds also consist of arguments. Title summarizes the contents of the classified. Description has more details of the classified. Category is the category that they classified is part of. Arguments are depended on the classified. In some cases is the size of a product or the color and it is not required to be filled in. Combination of contents' fields are mapped to queries and multiple query models are created (see table 1).
+
+
+\begin{table}[H]
+\begin{center}
+\scriptsize
+\caption{Query models' explanation is presented. Explanation is given for the use of fields in the query model, log likelihood ratio (LLR), stemming and pseudo relevance feedback (PRF).}
+\begin{tabular}{lccccr}
+\midrule
+Name & Fields & Stemming & LLR & PRF \\
+\midrule
+T & title & no & no & no \\
+T-LLR & title & no & yes & no \\
+T stemming & title & yes & no & no \\
+T-LLR stemming & title & yes & yes & no \\
+T+D  & title, description & no & no & no \\
+T+D+A+C & title, description, category, attributes & no & no & no \\
+A+C & attributes, category & no & no & no \\
+T+D+A+C-LLR & title, description, category, attributes & no & yes & no \\
+T+D+A+C-Pseudo & title, description, category, attributes & no & no & yes \\
+T-Pseudo & title & no & no & yes\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Pseudo Relevance Feedback}
+
+The general idea behind relevance feedback is to take the results that are initially returned from a given query and to use information about whether or not those results are relevant to perform a new query \cite{WikiRelevanceFeedback}. Pseudo relevance feedback provides an automated way to have feedback for a query. With the creation of a new query based on this feedback the retrieval performance improves.
+
+Although, pseudo relevance feedback improves the efficiency of the system, it is dependable to the original query since it assumes that the top k results are relevant. However, through a query expansion, some relevant documents missed in the initial round can then be retrieved to improve the overall performance. Clearly, the effect of this method strongly relies on the quality of selected expansion terms.
+
+\subsection{Log Likelihood Ratio}
+
+One of query models is Log Likelihood Ratio (LLR).
+
+``A likelihood ratio test is a statistical test used to compare the fit of two models, one of which (the null model) is a special case of the other (the alternative model). The test is based on the likelihood ratio, which expresses how many times more likely the data are under one model than the other.''
+
+As it is described in \cite{RaysonGarside} we can use LLR to compare corpora and find the terms of a corpus that are more characteristic. There are two main types of corpus comparison:
+
+\begin{list}{.}{}
+\item Comparison of a sample corpus to a larger corpus (normative)
+\item Comparison of two (roughly) equal sized corpora
+\end{list}
+
+These two main types of comparison can be extended to the comparison of more than two corpora. For example, we may compare one normative corpus to several smaller corpora at the same time, or compare three or more equal sized corpora to each other. In general, however, this makes the results more difficult to interpret.
+
+This first type of comparison is intended to discover features in the sample corpus with significantly different usage (i.e. frequency) to that found in ``general'' language. While second type aims to discover features in the corpora that distinguish one from another. In our case, the first type is more appropriate since we need to find a way to distinguish a model for a classified against a large corpus that will give us enough feedback for every word in the classified. We refer to the larger corpus as a ``normative'' corpus since it provides a text norm (or standard) against which we can compare.
+
+The representativeness of the big corpus needs to be considered when comparing two corpora. It should contain samples of all major text types and if possible in some way proportional to their usage in the natural writing of a classified in case we want features (in our case frequencies) to make sense . In the case of classifieds created by users, we need a corpora with a data set of classifieds really created by users and big to contain almost all different words a user will write in his classified \cite{RaysonGarside}.
+
+We can create query models with the use of LLR using the top k words with the biggest LLR number. This means that we have to calculate LL for every word in a given classified.
+
+The method that we have to follow is the following:
+Given a visited classified as null corpora and a big dataset of classifieds as normative corpora that we wish to compare with, we produce a frequency list. This would be a word frequency list. For each word in the first frequency list we calculate the log- likelihood statistic. This is performed by constructing a contingency table see table 2.
+
+
+\begin{table}[H]
+\begin{center}
+\footnotesize
+\caption{Contingency table for Log likelihood calculation.}
+\begin{tabular}{lccr}
+\toprule
+&  First Corpus & Second Corpus & Total \\
+\midrule
+Frequency of word & a &	b & a+b \\
+Frequency of other words & c-a & d-b & c+d-a-b \\
+Total & c & d & c+d \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Then, we need to calculate the expected values (E) according to the following formula:
+
+\begin{equation}
+E_i= \frac{N_{i}\sum_{i}{O_{i}}}{\sum_{i}{N_{i}}}
+\end{equation}
+
+The calculation for the expected values takes into account the size of the two corpora, so we do not need to normalize the figures before applying the formula. We can then calculate the log-likelihood value according to this formula:
+
+\begin{equation}
+-2ln\lambda=2\sum_{i}{O_{i}}{ln \frac{O_{i}}{E_{i}}}
+\end{equation}
+
+This equates to calculating log-likelihood LL as follows:
+
+\begin{equation}
+LL =2*((a*ln \frac{a}{E1}) + (b*ln \frac{b}{E2}))
+\end{equation}
+
+The word frequency list is then sorted by the resulting LL values. This gives the effect of placing the largest LL value at the top of the list representing the word which has the most significant relative frequency difference between the two corpora. In this way, we can find the words most indicative (or characteristic) of one corpus, as compared to the other corpus, at the top of the list \cite{RaysonGarside}.
+
+
+\section{Retrieval modeling}
+
+A retrieval model takes a query and a document as input and identifies a measure of relevance between the query and the document. Different retrieval models have different retrieval strategies thus resulted documents differs as well.
+
+Retrieval model or ranking function used by search engines mostly. A search engine except of finding the relevant document, has to rank and order them by relevance. This is typically done by assigning a numerical score to each document based on a ranking function, which incorporates features of the document, the query, and the overall document collection.
+
+The study of retrieval models is central to information retrieval. Many different retrieval models have been proposed and tested, including vector space models, probabilistic models and logic-based model.
+
+The ranking functions-retrieval models that we will use for this project are the following:
+\begin{list}{.}{}
+\item TfIdf
+\item Okapi BM25
+\item Probabilistic Language Model
+\end{list}
+
+\subsection{TfIdf}
+
+TfIdf (term frequency-inverse document frequency) is a kind of common methods used as term weighting factor in information retrieval. This retrieval method ranks documents based on characteristic terms of a document. Characteristic terms for a document are those who only frequently appears in the possible relevant document while infrequently in the rest documents of data collection \cite{ShouningSujuanYan}.
+
+TF is words frequency and idf is inverse document frequency. Term frequency in the given document is the number of times a given term appears in that document. The inverse document frequency is a measure of whether the term is common or rare across all documents.
+
+TfIdf  is calculated as:
+\begin{equation}
+	TfIdf = tf * idf
+\end{equation}
+
+\begin{equation}
+	idf = log \frac{ d }{ d_t}
+\end{equation}
+
+Where
+
+d : total number of documents in the collection
+
+$d_t$ : total number of documents where term t occurs
+
+However if the term t does not occur in the document collection idf, then dt will be equal to zero. Therefore the formula is adjusted to 1+dt
+
+TfIdf advantage is that it tends to filter out common terms. When a document has high term frequency while the term appears rarely in the whole collection of documents then it has high weight in TfIdf scoring.
+
+
+\subsection{Okapi BM25}
+
+In information retrieval, Okapi Best match 25 (BM25)  is a ranking function used by search engines to rank matching documents according to their relevance to a given search query \cite{WikiOkapi} . Okapi ranking function is based on the probabilistic retrieval framework. It makes an estimation of the probability of finding if a document dj is relevant to a query q. Three factors affects Okapi's score. First is the query terms frequency, second is the inverted frequency of query terms and finally, the length of the document. With this way, it scores higher a short document that mention all query terms.
+
+Given a query , containing keywords , the BM25 score of a document is:
+\begin{equation}
+BM25(d_j,q_i:N) = \frac{ ΣIdf(q_i)*Tf(q_i, d_j)*(k + 1) } { ( tf(q_i, dj)+k* (1-b+(b*|d_j|/L))) }
+\end{equation}
+
+Where
+N : total number of documents
+
+tf($q_i$, $d_j$) : the frequency of $q_i$ word in $d_j$ document
+
+idf($q_i$) : is the inverse document frequency of word given by:
+
+\begin{equation}
+idf(q_i) = log \frac{ N-DF(q_i) + 0.5 } { DF(q_i) +0.5 }
+\end{equation}
+
+$d_j$ : is the length of document $d_j$ in words
+
+L : is the average document length in the corpus
+
+\subsection{Probabilistic Language Modeling}
+
+Language Modeling is the task of estimating the probability distribution of linguistic units such as words, sentences, queries, utterances, or even complete documents. The probability distribution itself is referred to as a language model \cite{CroftLafferty}.
+
+
+Given the query q and the user U, we want to find the most probable documents. That is, we want to rank the documents by p($d|q$, U ).
+
+Using Bayes' theorem,
+
+\begin{equation}
+p(d|q, U ) = \frac{p(d|U )p(q|d, U )} {p(q|U)}
+\end{equation}
+
+For the purpose of ranking, we can ignore the denominator and define the relevance of a document as:
+
+\begin{equation}
+pq (d) = p(d|U ) * p(q|d, U )
+\end{equation}
+
+The query likelihood p($q|d$) is calculated by assuming that the query terms are independent, and then multiplying the probabilities for the individual terms. If the query q = ($q_1 q_2 \ldots q_m$ ) , then:
+
+\[p(q|d) =\prod_{i->1}^{m} q_i\]
+
+
+Furthermore, suppose that we have the query ``This is a great book for retrieval and evaluation in IR'' created by the description of a book and also we have as candidate document with description ``This is a book for evaluation in IR''. The candidate document does not contain the query word ``retrieval''. Now, if we estimate p($retrieval|d$) ,then this probability will be zero and the query likelihood will vanish. Thus, the language model for a document has to distribute some probability mass among words that are not in the document too. This task is called smoothing  \cite{ZhaiLaferty}. Dirichlet smoothing is used to solve the zero probability and data sparseness problems.
+
+\begin{equation}
+p(q|d) =\frac{tf + m * p(q|C) }{|D| + m}
+\end{equation}
+
+
+\section{Diversification}
+
+\subsubsection{Maximal marginal relevance}
+Diversification is implemented to provide of more diversified result set. Maximal Marginal Relevance (MMR) is a diversification method aims to re rank the result set selecting the highest combination of a similarity score with respect to a query and similarity score with respect to the documents selected at earlier rank.
+
+
+\begin{equation}
+MMR\overset{def}{=}\operatorname*{Arg\, \max}_{D_{i} \in R\ \setminus S}[\lambda(Sim_{1}(Di,Q)-(1-\lambda)\underset{{D_{j}\in S}}{\max}Sim_{2}(D_{i},D_{j})]
+\end{equation}
+
+where:
+R : Rank list of documents retrieved by an IR system
+
+S : is the subset of documents in R already selected
+
+Sim1 : is the similarity between documents and a query
+
+Sim2 : the similarity between the documents
+
+$\lambda$ : 0.5 because we want to give the same weight to ranking order and diversity
+
+
+\subsection{Maximal marginal relevance alternative 1}
+
+
+Maximal Marginal Relevance alternative (MMRalt) is a diversification method aims to re rank the result set selecting the highest combination of a similarity score with respect to a query and similarity score with respect to the previous selected document at earlier rank.
+
+
+Algorithm:
+
+\begin{enumerate}
+\item while we still have documents not selected
+	\begin{enumerate}
+	\item choose the first one and expose it
+	\item already displayed list : document0 (document in the first ranked position)
+	\item calculate the MMR of documentX using as cosine similarity the similarity between X and already displayed
+	\item expose the documentZ with the max(MMR) as the next one
+	\item already displayed: documentZ
+	\end{enumerate}
+\end{enumerate}
+
+
+\begin{equation}
+MMRAlt\overset{def}{=}\operatorname*{Arg \, \max}_{D_{i}\in R\ \setminus S}[\lambda(Sim_{1}(Di,Q)-(1-\lambda) Sim_{2}(D_{i},D_{s})]
+\end{equation}
+
+R : Rank list of documents retrieved by an IR system
+
+S : is the subset of documents in R already selected
+
+s : is the previous document selected
+
+Sim1 : is the similarity between documents and a query
+
+Sim2 : the similarity between the documents
+
+$\lambda$ : 0.5 because we want to give the same weight to ranking order and diversity
+
+
+
+\subsection{Maximal marginal relevance alternative 2}
+
+Maximal Marginal Relevance alternative 2 (MMRalt2) is a diversification method aims to re rank the result set selecting the highest combination of a similarity score with respect to a query and similarity score with respect to the previous selected documents at earlier rank. The difference between MMR and MMRalt2 is that this technique it does not take into account the maximum cosine similarity between X document and the displayed documents set. Instead it takes into account the average MMRalt2 score between a document and the previous displayed documents.
+
+Algorithm:
+
+\begin{enumerate}
+\item while we still have documents not selected
+	\begin{enumerate}
+	\item choose the first one and expose it
+	\item already displayed list : document0 (document in the first ranked position)
+	\item MMRx=AVG of MMRx,ds where ds set of the displayed documents
+	\item expose the documentZ with the max(MMRx) as the next one
+	\item already displayed: list with document0, documentZ
+	\end{enumerate}
+\end{enumerate}
+
+\begin{equation}
+MMRAlt2\overset{def}{=}\operatorname*{Arg \, \max}_{D_{i}\in R,s}
+\end{equation}
+
+
+R :Rank list of documents retrieved by an IR system
+
+S :is the previous document selected
+
+
+\subsection{Maximal marginal relevance average last four}
+
+Maximal Marginal Relevance average last four (MMRalt2last4) is a diversification method aims to re rank the result set selecting the highest combination of a similarity score with respect to a query and similarity score with respect to the previous four selected documents at earlier rank. The difference between MMRalt2 and this technique is that it takes into account only last four selected documents instead of all of them.
+
+The selection of the window of four is based on the graphics on ....
+
+Algorithm:
+\begin{enumerate}
+\item while we still have documents not selected
+	\begin{enumerate}
+	\item choose the first one and expose it
+	\item already displayed list : document0 (document in the first ranked position)
+	\item MMRx=AVG of MMRx,ds where ds set of the four last displayed documents
+	\item expose the documentZ with the max(MMRx) as the next one
+	\item already displayed: list with document0, documentZ
+	\end{enumerate}
+\end{enumerate}
+
+
+\section{Late Data Fusion}
+
+Based on \cite{Wilkins}, data fusion is the process of integration of multiple data and knowledge representing the same real-world object into a consistent, accurate, and useful representation. There are two approaches for the combination of data known as early fusion or late fusion. Early fusion is the combination of data prior to indexing. Thus the data aggregated and then retrieval model use this aggregated data as input. While late fusion assumes each source of data has associated with it some form of a ranking function, each of which can be independently queried. Once each source has been queried, the outputs of each of these queries can be aggregated together to form a final response to the initial query \cite{WikiDatafusion}.
+
+Since different retrieval results can generate quite different ranges of similarity values, a normalization
+method should be applied to each retrieval result. Normalization controls the ranges of similarity values that retrieval systems generate. Hence, in order to align both the lower bounds of similarity values and the upper, we normalize each similarity value
+by the maximum and minimum actually seen in a retrieval result as follows:
+
+\begin{equation}
+normalized score(x) = \frac{x-min}{max-min}
+\end{equation}
+
+where
+
+min : the minimum value for the ranked list
+
+max : the maximum value for the ranked list
+
+\bigskip
+
+After the normalization of the score we merged all of the ranked lists. We consider the following late data fusion methods:
+\bigskip
+
+\begin{table}[H]
+\begin{center}
+\caption{Late data fusion methods explanation.}
+\begin{tabular}{lcc}
+\midrule
+Name &   & Explanation \\
+\midrule
+combMAX &   & Maximum of individual scores \\
+combMIN &   & Minimum of individual scores \\
+combSUM &   & Sum of individual scores \\
+combANZ &   & combSUM / number of non zero scores \\
+combMNZ &   & combSUM * number of non zero scores \\
+WcombSUM &   & weighted sum of individual scores \\
+WcombMNZ &   & WcombSUM * count of non zero results \\
+WcombWW &   & WcombSUM * sum of individual weights \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Data fusion of diversified result lists}
+
+All of the merged ranked lists are diversified with the diversification methods described in a previous section.
+
+Next chapter will cover the explanation of our experimental design using the methods described in this chapter.

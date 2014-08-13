@@ -1,0 +1,258 @@
+Introduction
+
+% rewrite
+Our approach, described briefly, is to find an optimal algorithm which will create a list with similar classifieds based on the user's last visited classified. As it is mentioned above, classifieds consists of content describing elements (fields) such as title, description, attributes and category. The biggest amount of contents is in description, while title is a synoptic descriptive summary of all the information. Category is a broad category name provided by the user and attributes are based on the choice of the category. Examples of bicycles classified's attributes are the color, the height, used condition etc. So, from the moment that a user will provide the category of the classified as bicycle, he has to specify the color, height and size. For this reason we are always considering the category and attributes as one field.
+
+
+Results
+
+\subsection{LDF Results-Results Relevance ground truth}
+\begin{center}
+  \begin{tabular}{ l || c | c | c | r}
+    \hline
+    System & P\@5 & P\@10 & MAP & Rpr \\ \hline
+	combMAX & 0.5400 & 0.3730 & 0.3426 & 0.2919 \\ \hline
+	combMIN & 0.0760 & 0.0460 & 0.0723 & 0.0359 \\ \hline
+	combSUM & 0.6160 & 0.4980 & 0.4589 & 0.4160 \\ \hline
+	combMNZ & 0.6460 & 0.5030 & 0.4688 & 0.4309 \\ \hline
+	combANZ & 0.0800 & 0.0490 & 0.0858 & 0.0374 \\ \hline
+	WcombSUM & 0.6140 & 0.4920 & 0.4511 & 0.4135 \\ \hline
+	WcombMNZ & 0.6360 & 0.5050 & 0.4663 & 0.4294 \\ \hline
+	WcombWW & 0.6320 & 0.5080 & 0.4657 & 0.4281 \\ \hline
+	anz-rank & 0,0960 & 0,0890 & 0,1121 & 0,0921 \\ \hline
+	sum-rank & 0,3460 & 0,2690 & 0,2302 & 0,2373 \\ \hline
+	mnz-rank & 0,4560 & 0,3430 & 0,2778 & 0,2718 \\ \hline
+	max-rank & 0,7420 & 0,5380 & 0,4656 & 0,4249 \\ \hline
+	min-rank & 0,0920 & 0,0600 & 0,0747 & 0,0402 \\ \hline
+	anz-mapLDF & 0,0980 & 0,0860 & 0,1455 & 0,1053 \\ \hline
+	sum-mapLDF & 0,6380 & 0,5110 & 0,4475 & 0,4141 \\ \hline
+	mnz-mapLDF & 0,6560 & 0,5270 & 0,4598 & 0,4370 \\ \hline
+	max-mapLDF & 0,6760 & 0,5280 & 0,4380 & 0,4077 \\ \hline
+	min-mapLDF & 0,0180 & 0,0220 & 0,0707 & 0,0256 \\ \hline
+	anz-mapLDFAttr & 0,1360 & 0,1430 & 0,1536 & 0,1525 \\ \hline
+	sum-mapLDFAttr & 0,5760 & 0,4580 & 0,4120 & 0,3962 \\ \hline
+	mnz-mapLDFAttr & 0,6340 & 0,5090 & 0,4442 & 0,4245 \\ \hline
+	max-mapLDFAttr & 0,5200 & 0,3510 & 0,3431 & 0,3083 \\ \hline
+	min--mapLDFAttr & 0,0260 & 0,0240 & 0,0711 & 0,0301 \\ \hline
+	title-retLDF & 0,6420 & 0,4780 & 0,3955 & 0,3848 \\ \hline
+	titleLLR-retLDF & 0,5480 & 0,3850 & 0,3290 & 0,3027 \\ \hline
+	titleDescr-retLDF & 0,6260 & 0,4790 & 0,3912 & 0,3767 \\ \hline
+	titlePseudo-retLDF & 0,6840 & 0,4840 & 0,3839 & 0,3615 \\ \hline
+	titleStem-retLDF & 0,5820 & 0,4400 & 0,3647 & 0,3476 \\ \hline
+	titleStemLLR-retLDF & 0,5320 & 0,3690 & 0,3180 & 0,2942 \\ \hline
+	attr-retLDF & 0,4080 & 0,2760 & 0,2219 & 0,2044 \\ \hline
+	allF-retLDF & 0,6740 & 0,5070 & 0,4186 & 0,4031 \\ \hline
+	allLLR-retLDF & 0,6140 & 0,4180 & 0,3388 & 0,3144 \\ \hline
+	allPseudo-retLDF & 0,7400 & 0,5350 & 0,4365 & 0,4182 \\ \hline
+	title-retLDFAttr & 0,5400 & 0,4170 & 0,3643 & 0,3678 \\ \hline
+	titleLLR-retLDFAttr & 0,4560 & 0,3450 & 0,3034 & 0,3029 \\ \hline
+	titleDescr-retLDFAttr & 0,5200 & 0,4120 & 0,3584 & 0,3646 \\ \hline
+	titlePseudo-retLDFAttr & 0,4580 & 0,3760 & 0,3251 & 0,3296 \\ \hline
+	titleStem-retLDFAttr & 0,5100 & 0,3870 & 0,3406 & 0,3417 \\ \hline
+	titleStemLLR-retLDFAttr & 0,4480 & 0,3290 & 0,2941 & 0,2846 \\ \hline
+	attr-retLDFAttr & 0,3040 & 0,2430 & 0,2042 & 0,1998 \\ \hline
+	allF-retLDFAttr & 0,5380 & 0,4340 & 0,3739 & 0,3703 \\ \hline
+	allLLR-retLDFAttr & 0,4920 & 0,3700 & 0,3096 & 0,3023 \\ \hline
+	allPseudo-retLDFAttr & 0,5620 & 0,4360 & 0,3815 & 0,3811 \\ \hline
+  \hline
+  \end{tabular}
+\end{center}
+
+
+
+
+
+
+\subsection{Indri search engine}
+
+Indri is part of Lemur project and it is ideal for our project due to the following reasons:
+
+\begin{list}{.}{}
+
+\item{It is an open source search engine}
+\item{The query language allows researchers to experiment with proximity, document structure, text passages, and other document features without writing code.}
+\item{It has already implemented TfIdf and Okapi BM25F Okapi retrieval models for term query models and LM for term,weighted and structured queries.}
+\item{Indri is efficient.In \cite{MiddletonBaeza}, they report experiment for 29 open source engines and Indri proved one of the ten best open source search engines based on the big document collection which is able to index in a reasonable time and searching performance.}
+\item{Indri can parse TREC newswire and web collections, and it is able to return results in the TREC standard format \cite{lemurForum}.}
+\item{Indri provides an API accessible from C++, Java, C \#  programming languages.We are mostly interested in Java. }
+\item{Indri also can be distributed across a cluster of nodes for high speed query performance.}
+\item{Indri includes the ability to merge many indexes into a single larger index to increase performance \cite{TrevorStrohman}.}
+
+\end{list}
+
+
+
+
+\subsection{Indexing}
+
+Having discussed preprocessing of the collection of documents, the next step is to explain how and why we will use inverted index and what are the limitations.
+
+The point of using an index is to increase the speed and efficiency of searches of the document collection. Without some sort of index, a query must sequentially scan the document collection, finding those documents containing the search terms. This costs a lot of time for some thousands of files. Given this situation, a data structure called an inverted index is commonly used by search engines. Its basic structure inverts the text so that instead of the view obtained from scanning documents where a document is found and then its terms are seen, an index is built that maps terms to documents. Instead of listing each document once (and each term repeated for each document that contains the term), an inverted index lists each term in the collection only once and then shows a list of all documents that contain the given term. Each document identifier is repeated for each term that is found in the document. An inverted index contains two parts: an index of terms, which stores a distinct list of terms found in the collection and, for each term, a posting list, a list of documents that contain the term. In particular, for each term t, the index table contains an inverted list consisting of a number of index postings. Each posting consists of details for the term in this document as occurrence-frequency of this term in this specific document, document id, etc.
+
+While constructing an index consumes a lot of time, retrieval time is significantly faster with the use of an index. Furthermore, since index construction is an off-line process and it requires to be done only once, shorter query processing times at the expense of lengthier index construction times is an appropriate trade off.
+
+Also, many techniques have been proposed to improve inverted index construction such as \cite{HaoShuai} where they describe the compression of inverted index. Their goal was to decrease inverted index size and improve query through-compression. They follow document reordering approach. Actually they perform some form of text clustering on the collection to find similar documents, and then they assign document IDs based on the similarity of documents. However, in some cases, it is difficult or impossible to change the way document IDs are assigned.
+
+Finally, inverted index repositories can exceed the storage demands of the document collection itself. However, for many systems, the inverted index can be compressed to around ten percent of the original document collection. Given the alternative (of twenty minute searches), search engine developers are happy to trade index construction time and storage for query efficiency \cite{IrBook}.
+
+
+
+
+
+In the following parts we will extend these methods.
+
+
+\subsubsection{Parsing}
+Parsing is the process of analyzing a piece of text, made of a sequence of tokens (for example, words), to identify tokens in a stream of text \cite{WikiParsing}. For a string ``This is a document'' we can agree that the tokens are ``this'', ``is'', ``a'', ``document''. In some languages like Chinese this isn't trivial since words are not separated by spaces, but in our case this doesn't constitute a problem.
+
+Difficulties arise in an attempt to parse sentences like ``This is a document for F1-score''. One simple and comfortable way to parse this sentence is to remove punctuations and this will solve the problem. But should all hyphenated terms be treated as a single term? For example, suppose we parse the text ``and then he took the oh-so-long-awaited-jump''. If we remove punctuations and treat it as a single word, the result would be ``ohsolongawaitedjump''. Another option is to split the word based on the punctuation. This will solve the problem with ``oh-so-long-awaited-jump''. But in case the text ``F1-scores'' gets split into ``f1'' and ``score'', the meaning of the each word will be treated separately thus losing the meaning of combining both words.
+
+Given the previous situations, we can conclude that parsing is of a great importance since it affects the query accuracy. Thus decisions have to be made carefully, rules have to be created and every term of every document has to obey them. Also, parsing time can have a dramatic impact on the entire indexing process. The time taken to index documents directly impacts the delay between when a document is created to when it can be retrieved. For a static collection, this is not a big issue, but for a dynamic collection lengthy indexing times are unacceptable.
+
+
+\subsubsection{Stop Words}
+
+In computing, stop words are words which are filtered out prior to, or after, processing of natural language data (text). There is not one definite list of stop words which all tools use, if even used. Some tools specifically avoid removing them to support phrase search \cite{WikiStopwords}. Some search engines use stop word lists for short function words such as ``a'', ``the'', ``on'' etc. which occurs very often. Since these terms occur very often in common texts, indexing and retrieving them is probably meaningless. The odds of a term ``the'' randomly occurring in a document and a query is much higher than the odds of a more infrequent term. These frequently used terms are merely noise and can be eliminated from an information retrieval system. Typically, an information retrieval system contains a list of ``stop words''. After the parser is done with the manipulation of characters as described above, it will then remove stop words.
+
+\subsubsection{Stemming}
+
+Stemming is the process of reducing inflected (or sometimes derived) words to their stem, base or root form, generally a written word form. A way to implement stemming is to remove suffixes and prefixes in every term in the document collection and in every term of the query. For example, cars will be stemmed in car thus if we have a document related to car, we can retrieve documents related to cars also. However, stemming sometimes negatively affects a queries accuracy. For instance, if we search for ``organization'' and our stemmer removes the reasonably common suffix ``ization'' we end up with documents about ``organ''. The other advantage to stemmers is efficiency. They dramatically reduce the number of distinct terms in the collection. This affects the size of the entire inverted index \cite{WikiStemming}.
+
+
+
+
+
+
+
+
+
+\begin{code}[caption={TREC formated classified}]
+<doc>
+	<docno> 20000000 </docno>
+	<title> HM top zwart 36 5 euro </title>
+	<description>
+		alles 2 euro excl!!
+		behalve merken 5 euro extra
+		zie ook mijn andere advertenties
+	</description>
+	<category> dames </category>
+	<price>	€ 5 </price>
+	<attributes>	</attributes>
+</doc>
+\end{code}
+
+
+
+\begin{code}[caption={To do}]
+
+\end{code}
+
+
+
+Default MMR
+It exposes for each position the highest MMR in a comparison with the add in this position.
+Example:
+	Initial rank:
+	a,b,c,d
+
+	choose MAX of
+				{
+					MMR(a,b)
+					MMR(a,c)
+					MMR(a,d)
+				}
+
+expose c
+	choose MAX of
+				{
+					MMR(b,c)
+					MMR(b,d)
+				}
+expose d
+
+
+
+alternative diversification-altMMR
+Check the previous exposed with all the rest non exposed docs
+
+Example:
+	Initial rank:
+	a,b,c,d
+
+	choose a
+	choose MAX of
+				{
+					MMR(a,b)
+					MMR(a,c)
+					MMR(a,d)
+				}
+
+choose c
+	choose MAX of
+				{
+					MMR(c,b)
+					MMR(c,d)
+				}
+choose d
+
+choose b
+
+final rank: a,c,d,b
+
+alternative diversification2-altMMR2
+It exposes the maximum AVG(MMR) of next results with the exposed
+
+
+	Initial rank:
+	a,b,c,d,e
+
+	choose a
+
+	choose MAX of
+				{
+					MMR(a,b)
+					MMR(a,c)
+					MMR(a,d)
+					MMR(a,e)
+				}
+	choose b
+
+	choose MAX of
+				{
+					AVG(MMR(a,c), MMR(b,c))
+
+					AVG(MMR(a,d), MMR(b,d))
+
+					AVG(MMR(a,e), MMR(b,e))
+				}
+	choose d
+
+	choose MAX of
+				{
+
+					AVG(MMR(a,c), MMR(b,c), MMR(d,c))
+
+					AVG(MMR(a,e), MMR(b,e), MMR(d,e))
+				}
+
+	choose e
+
+	choose MAX of
+				{
+
+					AVG(MMR(a,c), MMR(b,c), MMR(d,c), MMR(e,c))
+				}
+	choose c
+
+	Final ordering: a,b,d,e,c
+
+
+alternativeDiversificationLast4
+
+It exposes the maximum AVG(MMR) of next results with the exposed previous 4
+
+alternativeDiversificationLast4With10Next
+
+It exposes the maximum AVG(MMR) of next 10 results with the exposed previous 4
+
+

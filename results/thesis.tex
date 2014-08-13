@@ -1,0 +1,68 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage{listings, amsmath, graphicx, lipsum, float, fancyvrb, multirow, subcaption, hyperref, booktabs, times}
+\usepackage[margin=1in]{geometry}
+
+% \renewcommand\bibname{References}
+
+\lstnewenvironment{code}[1][]
+{
+	\noindent
+	\minipage{\linewidth}
+		\vspace{0.2\baselineskip}
+		\lstset{
+			basicstyle=\ttfamily\footnotesize,
+			frame=single,#1,
+			language=XML,
+			tabsize=2,
+			columns=fullflexible,
+			showspaces=false,
+			frame=none,
+			basicstyle={\ttfamily},
+			breaklines
+		}
+}
+{\endminipage}
+
+\lstset{
+	language=HTML,
+	tabsize=2,
+	columns=fullflexible,
+	showspaces=false,
+	frame=none,
+	basicstyle={\ttfamily},
+	aboveskip=2em,
+	belowskip=2em,
+	breaklines
+}
+
+\setlength{\belowcaptionskip}{1em}
+
+\title{Ranking classifieds at Marktplaats.nl: Query Modeling, Retrieval Methods, Data Fusion and Result Diversification}
+\author{Varvara Tzika}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\input{../chapters/1.Introduction}
+
+\input{../chapters/2.RelatedWork}
+
+\input{../chapters/3.Method}
+
+\input{../chapters/4.ExperimentalDesign}
+
+\input{../chapters/5.Results}
+
+\input{../chapters/6.Analysis}
+
+\input{../chapters/7.Conclusion}
+
+\input{../chapters/8.References}
+
+\input{../chapters/9.Appendix}
+
+\end{document}

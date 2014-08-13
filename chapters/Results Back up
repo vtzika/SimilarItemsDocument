@@ -1,0 +1,30 @@
+\section{Results}
+
+\subsection{Pre-Evaluation}
+
+At the beginning of evaluation, we made some observations  that made us change the dataset,  There were a lot of duplicate classifieds in the results, The same user can create exactly the same classified multiple times, The system of Marktplaats suspended them however we didn't take it in mind from the beginning, Also there are advertisements that are requests instead of offers like 'i am searching for a pink bike', These advertisements are irrelevant to our experiment so we decided to remove them, The resulting dataset consisted of active classifieds for selling without duplicates,
+
+\subsection{First Evaluation}
+
+The first evaluation was made to evaluate the two preprocessing methods and two of the query models,
+We evaluated the ``query A'' and ``query B'' which we described above once with the first preprocessing method and one more with the second, Our goal of this evaluation was to find the best preprocessing for our classifieds,
+
+\subsection{First Evaluation Systems}
+
+\begin{enumerate}
+\item{Query model with 'Title words', stopwords preprocessing and TfIdf retrieval model}
+\item{Query model with 'Title words', stopwords preprocessing and LM retrieval model}
+\item{Query model with 'Title words', stopwords preprocessing and Okapi retrieval model}
+\item{Query model with 'LLR in Title words', stopwords preprocessing and TfIdf retrieval model}
+\item{Query model with 'LLR Title words', stopwords preprocessing and LM retrieval model}
+\item{Query model with 'LLR Title words', stopwords preprocessing and Okapi retrieval model}
+\item{Query model with 'Title words', stemming preprocessing and TfIdf retrieval model}
+\item{Query model with 'Title words', stemming preprocessing and LM retrieval model}
+\item{Query model with 'Title words', stemming preprocessing and Okapi retrieval model}
+\item{Query model with 'LLR in Title words', stemming preprocessing and TfIdf retrieval model}
+\item{Query model with 'LLR Title words', stemming preprocessing and LM retrieval model}
+\item{Query model with 'LLR Title words', stemming preprocessing and Okapi retrieval model}
+\end{enumerate}
+
+
+

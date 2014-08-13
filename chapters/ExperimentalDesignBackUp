@@ -1,0 +1,75 @@
+
+
+
+\subsection{RQ7 LDF-MMR vs MMR}
+To prove that the fusion of diversified results is improving the performance of diversified results, we fused all of the diversified results. Then, we compared the fused diversified results with the individual diversified results.
+
+So, we have the following experiments that conducted for this research question:
+
+\begin{center}
+  \begin{tabular}{ |l |c| r|}
+    \hline
+name & LDF methods used & MMR algorithm \\ \hline
+LDF Results-MMR & combMAX, combMIN, combSUM, combMNZ, combANZ, WcombSUM, WcombMNZ, WcombWW & MMR\\ \hline
+LDF Results-MMRAlt1 & combMAX, combMIN, combSUM, combMNZ, combANZ, WcombSUM, WcombMNZ, WcombWW & MMRAlt1\\ \hline
+LDF Results-MMRAlt2 & combMAX, combMIN, combSUM, combMNZ, combANZ, WcombSUM, WcombMNZ, WcombWW & MMRalt2\\ \hline
+LDF Results-MMRAltAvgLast4 & combMAX, combMIN, combSUM, combMNZ, combANZ, WcombSUM, WcombMNZ, WcombWW & MMRaltAvgLast4\\ \hline
+ \hline
+  \end{tabular}
+\end{center}
+
+
+
+
+
+
+
+
+
+% Overall Accuracy
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{../images/LmAvgScore-Rank.pdf}
+		\caption{LmAvgScore-Rank}
+		\label{fig:acc-ns}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{../images/OkapiAvgScore-Rank.pdf}
+		\caption{OkapiAvgScore-Rank}
+		\label{fig:acc-ns}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{../images/TfidfAvgScore-Rank.pdf}
+		\caption{TfIdfAvgScore-Rank}
+		\label{fig:acc-ns}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{../images/lmrankrel.pdf}
+		\caption{LMRank-Relevance}
+		\label{fig:acc-ns}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{../images/Okapirankrel.pdf}
+		\caption{OkapiRank-Relevance}
+		\label{fig:acc-ns}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{../images/Tfidfrankrel.pdf}
+		\caption{TfidfRank-Relevance}
+		\label{fig:acc-ns}
+	\end{subfigure}
+	\caption{Accuracy}
+	\label{fig:acc}
+\end{figure}
+
+
+\subsection{Evaluation}
+
+We split the evaluation in three parts. The first part is the evaluation of preprocessing within the title query. Second, is the evaluation of the rest of the query models using the best performing preprocessing from the first part of evaluation. The third part is the evaluation of pseudo relevance feedback on the top 4 best performing systems as evaluated in step 2. Results from the evaluation and observations are provided in the following chapter.
