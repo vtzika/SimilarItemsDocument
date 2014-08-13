@@ -36,7 +36,7 @@ T-Pseudo & title & no & no & yes\\
 
 \subsection{Pseudo Relevance Feedback}
 
-The general idea behind relevance feedback is to take the results that are initially returned from a given query and to use information about whether or not those results are relevant to perform a new query \cite{WikiRelevanceFeedback}. Pseudo relevance feedback provides an automated way to have feedback for a query. With the creation of a new query based on this feedback the retrieval performance improves.
+The general idea behind relevance feedback is to take the results that are initially returned from a given query and to use information about whether or not those results are relevant to perform a new query. Pseudo relevance feedback provides an automated way to have feedback for a query. With the creation of a new query based on this feedback the retrieval performance improves.
 
 Although, pseudo relevance feedback improves the efficiency of the system, it is dependable to the original query since it assumes that the top k results are relevant. However, through a query expansion, some relevant documents missed in the initial round can then be retrieved to improve the overall performance. Clearly, the effect of this method strongly relies on the quality of selected expansion terms.
 
@@ -145,7 +145,7 @@ TfIdf advantage is that it tends to filter out common terms. When a document has
 
 \subsection{Okapi BM25}
 
-In information retrieval, Okapi Best match 25 (BM25)  is a ranking function used by search engines to rank matching documents according to their relevance to a given search query \cite{WikiOkapi} . Okapi ranking function is based on the probabilistic retrieval framework. It makes an estimation of the probability of finding if a document dj is relevant to a query q. Three factors affects Okapi's score. First is the query terms frequency, second is the inverted frequency of query terms and finally, the length of the document. With this way, it scores higher a short document that mention all query terms.
+In information retrieval, Okapi Best match 25 (BM25)  is a ranking function used by search engines to rank matching documents according to their relevance to a given search query. Okapi ranking function is based on the probabilistic retrieval framework. It makes an estimation of the probability of finding if a document dj is relevant to a query q. Three factors affects Okapi's score. First is the query terms frequency, second is the inverted frequency of query terms and finally, the length of the document. With this way, it scores higher a short document that mention all query terms.
 
 Given a query , containing keywords , the BM25 score of a document is:
 \begin{equation}
@@ -306,7 +306,7 @@ Algorithm:
 
 \section{Late Data Fusion}
 
-Based on \cite{Wilkins}, data fusion is the process of integration of multiple data and knowledge representing the same real-world object into a consistent, accurate, and useful representation. There are two approaches for the combination of data known as early fusion or late fusion. Early fusion is the combination of data prior to indexing. Thus the data aggregated and then retrieval model use this aggregated data as input. While late fusion assumes each source of data has associated with it some form of a ranking function, each of which can be independently queried. Once each source has been queried, the outputs of each of these queries can be aggregated together to form a final response to the initial query \cite{WikiDatafusion}.
+Based on \cite{Wilkins}, data fusion is the process of integration of multiple data and knowledge representing the same real-world object into a consistent, accurate, and useful representation. There are two approaches for the combination of data known as early fusion or late fusion. Early fusion is the combination of data prior to indexing. Thus the data aggregated and then retrieval model use this aggregated data as input. While late fusion assumes each source of data has associated with it some form of a ranking function, each of which can be independently queried. Once each source has been queried, the outputs of each of these queries can be aggregated together to form a final response to the initial query.
 
 Since different retrieval results can generate quite different ranges of similarity values, a normalization
 method should be applied to each retrieval result. Normalization controls the ranges of similarity values that retrieval systems generate. Hence, in order to align both the lower bounds of similarity values and the upper, we normalize each similarity value

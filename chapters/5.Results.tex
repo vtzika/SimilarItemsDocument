@@ -4,11 +4,12 @@ In the following sections, the experiment results are presented and analyzed. Fu
 
 \section{Query modeling}
 
-To answer the first research question about the best query model to improve the performance of our baseline, we conduct the query modeling experiment as it is described in the experimental design chapter. Following are the results of this experiment.
+To answer the first research question about the best query model to improve the performance of our baseline, we conduct the query modeling experiment as it is described in the experimental design chapter. Following are the results of this experiment at the table \ref{table:qmP5}.
 
 \begin{table}[H]
 \begin{center}
 \caption{System Performance using precision at first five results measure (P@5) of title (T), title and description (T+D), all the fields (T+D+A+C) and attribute and categories (A+C) query models using three retrieval strategies (BM25, LM, TfIdf) and two types of ground truth (editorial and click logs).}
+\label{table:qmP5}
 
 \begin{tabular}{lccccccc}
 \toprule
@@ -74,6 +75,8 @@ Different late data fusion techniques used to answer the third research question
 \begin{center}
 \footnotesize
 \caption{System Performance using precision at first five results measure (P@5) of late data fusion methods (combMAX, combMIN, combSUM, combMNZ, combANZ, WcombSUM, WcomMNZ, WcombWW) and the best individual system using two types of ground truth (editorial and click logs).}
+\label{table:ldfP5}
+
 \begin{tabular}{lcr}
 \midrule
   & Editorial & Clicks logs\\
@@ -93,11 +96,7 @@ Different late data fusion techniques used to answer the third research question
 \end{table}
 
 
-
-
-
-
-The table represents all the late fusion methods we use to answer the third research question in a comparison with the individual best system. The most important observation of this table is that none of the fused systems is performing better than the individual one using the editorial evaluation.
+The table \ref{table:ldfP5} represents all the late fusion methods we use to answer the third research question in a comparison with the individual best system. The most important observation of this table is that none of the fused systems is performing better than the individual one using the editorial evaluation.
 
 On the results with the editorial evaluation, the compMNZ is performing better than the rest of the fused systems. The rest of the fused systems have small differences in the precision except of the combMIN and combANZ that have very low precision.
 
@@ -139,12 +138,14 @@ In the previous graphs, the precision in five first results for the alternative 
 
 \section{Fused diversified results}
 
-Final research question on the improvement fusion of diversified systems improve the performance of the not diversified systems?
+Final research question is if fusion of diversified systems improves the performance of the not diversified systems.
 
 \begin{table}[H]
 \begin{center}
 \footnotesize
 \caption{System Performance using precision at first five results measure (P@5) of late data fusion methods (combMAX, combMIN, combSUM, combMNZ, combANZ, WcombSUM, WcombMNZ, WcombWW) of fused system and fused diversified system using two types of ground truth (editorial and click logs).}
+\label{table:ldfMmrP5}
+
 \begin{tabular}{lccccc}
 \toprule
  & \multicolumn{2}{c}{Editorial} & & \multicolumn{2}{c}{Click logs} \\
@@ -164,13 +165,20 @@ Final research question on the improvement fusion of diversified systems improve
 \end{center}
 \end{table}
 
-The previous two tables represent the comparison of the results of fused diversified systems versus the fusion of individual systems with both click logs and editorial evaluation.
+The table \ref{table:ldfMmrP5} represents the comparison of the results of fused diversified systems versus the fusion of individual systems with both click logs and editorial evaluation to answer this reasearch question.
 
 Using the click logs evaluation, we can't see a big difference except of the 0.5 increase on combMAX when the system is diversified.
 
 Using the relevance feedback, we can see a small improvement in precision in all the systems. Also, the biggest difference is in the combMAX which has an increase of 0.19. The smallest increase we have in this table is the combANZ which is 0.014.
 
 All in all, using the editorial evaluation we can verify and answer to the seventh research question that the fused diversified systems perform better than the fused not diversified systems. Using the click log evaluation, we can not give the same answer cause the results in the table don't show any big improvement.
+
+
+
+The results in the table \ref{table:ldfMmrP5} using editorial evaluation show us an improvement on the precision when the diversified lists are fused. Also, combMAX outperforms even our best individual system (T+D+A+D).  Click logs evaluation from the other side shows a small difference in precision that doesn't indicate an actual improvement. However, combMAX's precision has a big boost of 0.1280 to 0.1700 which needs investigation to a future work. All in all, to answer the seventh research question, the fusion of diversified result lists improve the precision of the top five results, thus it performs better than the rest.
+
+Further measurements of data fusion of all the proposed diversification methods can be seen on \ref{table:LdfMmr}, \ref{table:LdfMmralt1}, \ref{table:LdfMmralt2}, \ref{table:LdfMmrAvgLast4}.
+
 
 
 Research questions had already answered with the results of this chapter. A deeper analysis and assumptions about the reasons we have these results are provided in the next chapter.

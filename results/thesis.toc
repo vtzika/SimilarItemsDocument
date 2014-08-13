@@ -48,17 +48,16 @@
 \contentsline {section}{\numberline {5.5}Fused diversified results}{30}{section.5.5}
 \contentsline {chapter}{\numberline {6}Analysis}{32}{chapter.6}
 \contentsline {section}{\numberline {6.1}Stemming experiment}{32}{section.6.1}
-\contentsline {section}{\numberline {6.2}Query modeling}{34}{section.6.2}
-\contentsline {section}{\numberline {6.3}Retrieval methods}{38}{section.6.3}
+\contentsline {section}{\numberline {6.2}Query modeling}{33}{section.6.2}
+\contentsline {section}{\numberline {6.3}Retrieval methods}{37}{section.6.3}
 \contentsline {section}{\numberline {6.4}Late Data Fusion experiments}{38}{section.6.4}
 \contentsline {section}{\numberline {6.5}Diversification experiments}{41}{section.6.5}
-\contentsline {paragraph}{MMRalt1}{41}{section*.37}
-\contentsline {paragraph}{MMRalt2}{41}{section*.38}
-\contentsline {paragraph}{MMRaltAvgLast4}{42}{section*.39}
-\contentsline {section}{\numberline {6.6}Data fusion of diversified result experiment}{42}{section.6.6}
-\contentsline {chapter}{\numberline {7}Conclusion and Future work}{43}{chapter.7}
-\contentsline {chapter}{\numberline {8}Appendix}{49}{chapter.8}
-\contentsline {section}{\numberline {8.1}Query modeling}{49}{section.8.1}
-\contentsline {section}{\numberline {8.2}Late Data Fusion}{50}{section.8.2}
-\contentsline {section}{\numberline {8.3}Diversification}{51}{section.8.3}
-\contentsline {section}{\numberline {8.4}Data fusion of diversified result lists}{55}{section.8.4}
+\contentsline {paragraph}{MMRalt1}{41}{section*.36}
+\contentsline {paragraph}{MMRalt2}{41}{section*.37}
+\contentsline {paragraph}{MMRaltAvgLast4}{41}{section*.38}
+\contentsline {chapter}{\numberline {7}Conclusion and Future work}{42}{chapter.7}
+\contentsline {chapter}{\numberline {8}Appendix}{48}{chapter.8}
+\contentsline {section}{\numberline {8.1}Query modeling}{48}{section.8.1}
+\contentsline {section}{\numberline {8.2}Late Data Fusion}{49}{section.8.2}
+\contentsline {section}{\numberline {8.3}Diversification}{50}{section.8.3}
+\contentsline {section}{\numberline {8.4}Data fusion of diversified result lists}{54}{section.8.4}

@@ -8,37 +8,14 @@ Preprocessing is a good approach to improve the effectiveness of retrieval syste
 
 We make one initial experiment to measure if any change on performance occurs when we use stemming in the preprocessing phase. In this phase we use two different query models and we compare the result lists with stemming used in the preprocessing and without.
 
-We preprocess the document collection and we convert it in lowercase, remove stopwords, replace punctuations with spaces and remove words with one or two characters. Also, for experimentation purposes we compare two approaches (with or without  stemming). Stemming is based on the snowball stemmer \cite{Snowball}. Then, the data saved in SGML formatted documents.
+We preprocess the document collection and we convert it in lowercase, remove stopwords, replace punctuations with spaces and remove words with one or two characters. Also, for experimentation purposes we compare two approaches (with or without  stemming). Stemming is based on the snowball stemmer. Then, the data saved in SGML formatted documents.
 
-\begin{table}[H]
-\begin{center}
-\scriptsize
-\caption{Systems used on the stemming experiment are presented. Explanation is given for the use of fields use in the query model, log likelihood ratio (LLR), stemming and retrieval strategy.}
-\begin{tabular}{lccccr}
-\midrule
-Name & Fields & Retrieval strategy & Stemming & LLR \\
-\midrule
-T-TfIdf & title & TfIdf & No & No \\
-T-LM & title & LM & No & No \\
-T-Okapi & title & Okapi & No & No \\
-T-TfIdf-LLR & title & TfIdf & Yes & No \\
-T-LM-LLR & title & LM & Yes & No \\
-T-Okapi-LLR & title & Okapi & Yes & No \\
-T-TfIdf-stemming & title & TfIdf & No & Yes \\
-T-LM-stemming & title & LM & No & Yes \\
-T-Okapi-stemming & title & Okapi & No & Yes \\
-T-TfIdf-stemming-LLR & title & TfIdf & Yes & Yes \\
-T-LM-stemming-LLR & title & LM & Yes & Yes \\
-T-Okapi-stemming-LLR & title & Okapi & Yes & Yes \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{table}
 
 
 \begin{table}[h]
 \begin{center}
 \caption{System Performance using precision at first five results measure (P@5) of title (T), title using LLR (T-LLR) query models with and without stemming using three retrieval strategies (BM25, LM, TfIdf) and two types of ground truth (editorial and click logs).}
+\label{table:stemmSystems}
 \begin{tabular}{lccccccc}
 \toprule
  & \multicolumn{3}{c}{Editorial} & & \multicolumn{3}{c}{Click logs} \\
@@ -57,16 +34,17 @@ T-stemming-LLR & 0.5280 & 0.5160 & 0.4980 &   &	 		\textbf{0.1580} & 0.1560 & 0.
 
 
 
-Based on the results using editorial evaluation, stemming decrease the P@5 measure at least 0.3 and the maximum of 0.5 at Okapi BM25. In the query model with LLR on title field with LM retrieval strategy, there is no difference in precision.
+Based on the results on table \ref{table:stemmSystems} using editorial evaluation, stemming decrease the P@5 measure at least 0.3 and the maximum of 0.5 at Okapi BM25. In the query model with LLR on title field with LM retrieval strategy, there is no difference in precision.
 Based on the results using click logs evaluation, there is no big decrease in the results with stemming but neither an improvement. The only case that a small increase in performance happened is on the title query with TFIDF.
 
 We believe that the reason of the previous results is that stemming negatively affects the queries accuracy. For instance, if we search for ``organization'' and our stemmer removes the reasonably common suffix ``ization'' we end up with classifieds about ``organ''. Also, we found examples that didn't retrieve any relevant classifieds on the first five results, while there were at least two relevant results in the systems without stemming. Also, we observe that the same classifieds in the result list have lower score due to the fact that the frequency of stemmed terms are greater.
 
-For further analysis, we are presenting the following table with the count of relevant results retrieved only when stemming used and the count of relevant results retrieved only in the systems without stemming. We used the Okapi Title query model since we found the biggest difference in the performance.
+For further analysis, we are presenting the table \ref{table:stemmRelIrrel} with the count of relevant results retrieved only when stemming used and the count of relevant results retrieved only in the systems without stemming. We used the Okapi Title query model since we found the biggest difference in the performance.
 
 \begin{table}[h]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with title query model (T) and BM25 without stemming, number of examples retrieve uniquely this number of classifieds with title query model and BM25 with stemming (T-stemming).}
+\label{table:stemmRelIrrel}
 \begin{tabular}{lcr}
 \midrule
 Relevant classifieds & T & T-stemming \\
@@ -96,12 +74,13 @@ Also, in the moment we made the editorial evaluation we observed the following:
 \item{Also in the same case, attributes will add extra value due to the extra information about the size and the kind of shoe.}
 \item{In the case of products sale classifieds as original classified, we have as result classifieds with parts for this product. However, this is not always relevant.}
 \end{list}
-To further analyze the results we are presenting the following table with the extra relevant results retrieved when description is added on the query model.
+To further analyze the results we are presenting the table \ref{table:titleVsTD} with the extra relevant results retrieved when description is added on the query model.
 
 
 \begin{table}[H]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with title and description query model and BM25 (T+D), number of examples retrieve uniquely this number of classifieds with title query model and BM25 (T).}
+\label{table:titleVsTD}
 \begin{tabular}{lcr}
 \midrule
 Relevant classifieds & T+D & T \\
@@ -119,7 +98,7 @@ As you can see, the query model with title and description has a lot of relevant
 
 
 
-Furthermore, we are presenting the following table with the uniquely relevant results retrieved when all the fields are in the query model in a comparison with the description query model.
+Furthermore, we are presenting the table \ref{table:tVsEntRank} with the uniquely relevant results retrieved when all the fields are in the query model in a comparison with the description query model.
 
 \begin{table}[H]
 \begin{center}
@@ -157,12 +136,14 @@ As you can see from the table \ref{table:tVsEntRank}, 72 uniquely retrieved resu
 \end{center}
 \end{table}
 
-Also, we are presenting the following table with the uniquely relevant results retrieved when all the fields are in the query model in a comparison with the baseline.
+Also, we are presenting the table \ref{table:allVST} with the uniquely relevant results retrieved when all the fields are in the query model in a comparison with the baseline.
 
 
 \begin{table}[H]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with all fields in query model and BM25 (T+D+A+C), number of examples retrieve uniquely this number of classifieds with title query model and BM25 (T).}
+\label{table:allVST}
+
 \begin{tabular}{lcr}
 \midrule
 Relevant classifieds &  T+D+A+C & T \\
@@ -182,12 +163,13 @@ Relevant classifieds &  T+D+A+C & T \\
 
 The uniquely retrieved results from all the fields are more or equal than our baseline except of the case that 2 unique results are retrieved in the top five results. In total, 75 uniquely retrieved results from all the fields query model and 55 from title query model. Furthermore, in table \ref{table:qmEd}, we present more measures for all the query models that proves the same assumptions. Precision at first ten results is increased when title is added to the baseline and has the best score when attributes and category added as well. Also, similar observations we had using MAP or Rprec as measurements. However, in \ref{table:qmCl}, the results are not so clear but they they don't disprove our initial assumptions.
 
-We also observed that query model with attributes and category indicates the lowest precision in a comparison with the rest of the query models. We hypothesize that not enough information exists to attributes and category, thus the results will be negative. To further prove that assumption, we are presenting the following table with the uniquely relevant results retrieved when attributes and category are only in the query model in a comparison with the baseline.
+We also observed that query model with attributes and category indicates the lowest precision in a comparison with the rest of the query models. We hypothesize that not enough information exists to attributes and category, thus the results will be negative. To further prove that assumption, we are presenting the table \ref{table:AcVsT} with the uniquely relevant results retrieved when attributes and category are only in the query model in a comparison with the baseline.
 
 
 \begin{table}[h]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with attributes and category in query model and BM25 (A+C), number of examples retrieve uniquely this number of classifieds with title query model and BM25 (T).}
+\label{table:AcVsT}
 \begin{tabular}{lcr}
 \midrule
 Relevant classifieds &  A+C & T \\
@@ -208,12 +190,13 @@ It is obvious in the previous results that query model with only attribute and c
 
 
  \textbf{Query models with discriminative terms}
-Our assumption was that discriminative terms will retrieve less results but more accurate due to the fact that a more accurate query is created. Thus, the precision at first five will be increased. To prove this assumption, we present the following table with the six different systems.
+Our assumption was that discriminative terms will retrieve less results but more accurate due to the fact that a more accurate query is created. Thus, the precision at first five will be increased. To prove this assumption, we present the results of the table \ref{table:discP5} with the six different systems.
 
 
 \begin{table}[H]
 \begin{center}
 \caption{System Performance using precision at first five results measure (P@5) of title (T), title using LLR (T-LLR), title using stemming (T-stemming), title using both LLR and stemming (T-LLR stemming), all fields (T+D+A+C) and all fields using LLR (T+D+A+C-LLR) query models and two types of ground truth (editorial and click logs).}
+\label{table:discP5}
 
 \begin{tabular}{lccccccc}
 \toprule
@@ -238,11 +221,12 @@ T+D+A+C-LLR & 0.6360 & 0.5400 & 0.5740 &   &	 0.1600 & 0.1640 & 0.1540 \\
 Based on the results, all the systems are negatively affected in a comparison with the systems with the discriminative terms. Using the editorial evaluation, big decrease from all the fields query model to LLR all the fields query model in all three retrieval strategies is indicated. Smaller decreases in the rest of the systems are shown but none of them show any improvement. Since using stemming and relevance in the title query hurts the performance even more than 0.10, we decided not to use it in the rest of the query models.
 
 
-We hypothesize that the reason of the previous results is that LLR is removing some important information thus relevant results are not retrieved. To prove that, we are presenting the following table with the count of relevant results retrieved only when LLR is used in a system and the count of relevant results retrieved only in the same system without the use of LLR.
+We hypothesize that the reason of the previous results is that LLR is removing some important information thus relevant results are not retrieved. To prove that, we are presenting the table \ref{table:LLRP5} with the count of relevant results retrieved only when LLR is used in a system and the count of relevant results retrieved only in the same system without the use of LLR.
 
 \begin{table}[H]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with LLR and all fields query model (T+D+A+C-LLR) in the query model and BM25, number of examples retrieve uniquely this number of classifieds with all fields query model (T+D+A+C) and BM25.}
+\label{table:LLRP5}
 
 \begin{tabular}{lcr}
 \midrule
@@ -258,16 +242,17 @@ Relevant classifieds &  T+D+A+C-LLR & T+D+A+C \\
 
 
 
-No obvious difference is observed thus this subject will be added on the future work due to time constraint. One possible explanation that precision is harmed is that the the same relevant classifieds are scored less when LLR is used due to less word matching. Thus, they retrieve the same relevant classifieds but with different rank.
+No obvious difference is observed in table \ref{table:LLRP5} thus this subject will be added on the future work due to time constraint. One possible explanation that precision is harmed is that the the same relevant classifieds are scored less when LLR is used due to less word matching. Thus, they retrieve the same relevant classifieds but with different rank.
 
 
  \textbf{Query models with pseudo relevance feedback}
 
- Pseudo relevance feedback extends the query and more relevant classifieds retrieved. To prove this assumption, we present the following table with two different systems.
+ Pseudo relevance feedback extends the query and more relevant classifieds retrieved. To prove this assumption, we analyze the results of the table \ref{table:PseudoP5} with two different systems.
 
 \begin{table}[H]
 \begin{center}
 \caption{System Performance using precision at first five results measure (P@5) of all fields (T+D+A+C) and all fields using pseudo relevance feedback (T+D+A+C-Pseudo) query models and two types of ground truth (editorial and click logs).}
+\label{table:PseudoP5}
 \begin{tabular}{lccccccc}
 \toprule
  & \multicolumn{3}{c}{Editorial} & & \multicolumn{3}{c}{Click logs} \\
@@ -281,7 +266,7 @@ No obvious difference is observed thus this subject will be added on the future 
 \end{center}
 \end{table}
 
-The results show that in the case of LM and TfIdf there is a decrease in the P@5, but in the case of Okapi it remains stable. Since the pseudo relevance feedback is an expensive procedure due to the fact that it needs to retrieve results, take feedback and then to retrieve new result list, we decide that we will not use pseudo relevance feedback on the rest of the query models.
+The results of the table \ref{table:PseudoP5} show that in the case of LM and TfIdf there is a decrease in the P@5, but in the case of Okapi it remains stable. Since the pseudo relevance feedback is an expensive procedure due to the fact that it needs to retrieve results, take feedback and then to retrieve new result list, we decide that we will not use pseudo relevance feedback on the rest of the query models.
 
 
 
@@ -309,16 +294,17 @@ It is obvious that Okapi BM25 retrieves the biggest number of relevant results. 
 
 \section{Late Data Fusion experiments}
 
-In the table 5.3, we can see that late data fusion methods are not performing better than the best individual system. We were expecting that combMIN will have the worst precision since it takes into account the smallest score. But, we believed that combMNZ will perform better than the best individual system due to the fact that it boosts score and rank of a relevant classified that is agreed upon many systems.
+In the table \ref{table:ldfP5}, we can see that late data fusion methods are not performing better than the best individual system. We were expecting that combMIN will have the worst precision since it takes into account the smallest score. But, we believed that combMNZ will perform better than the best individual system due to the fact that it boosts score and rank of a relevant classified that is agreed upon many systems.
 
 From the other side, using the click logs evaluation the precision is improved on the weighted fusion methods (WcombSUM, WcombMNZ, WcombWW), but the difference is just 0.02 which is not enough to make us confident to say that they perform better.
 
-Our assumption is that we have these results because we fused all the systems together. Some of the systems are not performing as well as others. To prove that assumption, we present the following table with the total number of relevant and irrelevant classifieds retrieved by a specific number of systems.
+Our assumption is that we have these results because we fused all the systems together. Some of the systems are not performing as well as others. To prove that assumption, we present the table \ref{table:relIrelLDF} with the total number of relevant and irrelevant classifieds retrieved by a specific number of systems.
 
 
 \begin{table}[H]
 \begin{center}
 \caption{Number of systems, total number of relevant and irrelevant classifieds retrieved by the specific number of systems.}
+\label{table:relIrelLDF}
 \begin{tabular}{lcr}
 \midrule
  Systems & Irrelevant & Relevant \\
@@ -356,7 +342,7 @@ Our assumption is that we have these results because we fused all the systems to
 \end{center}
 \end{table}
 
-The previous results indicate that there are only three irrelevant classifieds that are retrieved from more than 25 systems while 31 relevant results retrieved by all all the systems. On the other hand, less than five systems retrieved more than a thousand irrelevant classifieds and around 100 relevant classifieds.  Since the number of relevant results retrieved by many systems is not big, fusion systems such as combMNZ are not improving the precision of the individual systems. The different information in the query models is a possible reason of these results but it will be part of future investigation.
+The results of the table \ref{table:relIrelLDF} indicate that there are only three irrelevant classifieds that are retrieved from more than 25 systems while 31 relevant results retrieved by all all the systems. On the other hand, less than five systems retrieved more than a thousand irrelevant classifieds and around 100 relevant classifieds.  Since the number of relevant results retrieved by many systems is not big, fusion systems such as combMNZ are not improving the precision of the individual systems. The different information in the query models is a possible reason of these results but it will be part of future investigation.
 
 
 For future work further analysis, more measures results are presented on \ref{table:ldf} using three retrieval models and two ground truth types (editorial and click logs).
@@ -369,6 +355,8 @@ To further analyze these results, we conduct one extra experiment with combANZ k
 \begin{center}
 \scriptsize
 \caption{Systems used on the combANZ with stable systemic differences are presented. Explanation is given for the use of fields use in the query model, log likelihood ratio (LLR), stemming and pseudo relevance feedback (PRF). }
+\label{table:combANZSystems}
+
 \begin{tabular}{lccccr}
 \midrule
 Name & Fields & Stemming & LLR & PRF \\
@@ -392,8 +380,8 @@ T+D+A+C-Pseudo & title, description, category, attributes & no & no & yes \\
 \begin{table}[H]
 \begin{center}
 \footnotesize
-\caption{System Performance using precision at first five results measure (P@5) of combANZ keeping stable systemic differences in a comparison with combANZ merged from all systems using editorial and click logs evaluation. Query models used are title (T), title using LLR (T-LLR), title using stemming (T-stemming), title and description (T+D), all the fields (T+D+A+C) and attribute and categories (A+C), all the fields using LLR (T+D+A+C-LLR), all the fields using pseudo relevance feedback (T+D+A+C-pseudo) query models and two types of ground truth (editorial and click logs).
-}
+\caption{System Performance using precision at first five results measure (P@5) of combANZ keeping stable systemic differences in a comparison with combANZ merged from all systems using editorial and click logs evaluation. Query models used are title (T), title using LLR (T-LLR), title using stemming (T-stemming), title and description (T+D), all the fields (T+D+A+C) and attribute and categories (A+C), all the fields using LLR (T+D+A+C-LLR), all the fields using pseudo relevance feedback (T+D+A+C-pseudo) query models and two types of ground truth (editorial and click logs).}
+\label{table:combANZ}
 \begin{tabular}{lcr}
 \midrule
  Query model & Editorial & Click logs \\
@@ -416,7 +404,7 @@ T+D+A+C-Pseudo & title, description, category, attributes & no & no & yes \\
 
 
 
-As you can see in the previous table, the combANZ is improved when the systemic differences kept stable. However they didn't outperform the precision of the individuals (see table 5.1).
+As you can see in the table \ref{table:combANZ}, the combANZ is improved when the systemic differences kept stable. However they didn't outperform the precision of the individuals (see table \ref{table:qmP5}).
 
 
 Furthermore, more measures results are presented in table \ref{table:combANZ} using three retrieval models and two ground truth types (editorial and click logs).
@@ -425,7 +413,7 @@ To conclude, the fusion of the results doesn't outperform the performance of the
 
 \section{Diversification experiments}
 
-As you can see in the bar graphs in the results chapter, there is no big improvement in precision using either editorial or click logs evaluation and the alternative diversification approaches. Our assumption is that our results are too diversified already. This assumption can be proved if the precision in the individual systems is the same with the diversified systems. The following table presents the results of BM25 individual systems and BM25 diversified systems using editorial evaluation and click logs evaluation.
+As you can see in the bar graphs in the results chapter, there is no big improvement in precision using either editorial or click logs evaluation and the alternative diversification approaches. Our assumption is that our results are too diversified already. This assumption can be proved if the precision in the individual systems is the same with the diversified systems. The table \ref{table:MMRP5} presents the results of BM25 individual systems and BM25 diversified systems using editorial evaluation and click logs evaluation.
 
 
 
@@ -434,6 +422,7 @@ As you can see in the bar graphs in the results chapter, there is no big improve
 \begin{center}
 \caption{System Performance using precision at first five results measure (P@5) of diversified and individual systems using title (T), title and description (T+D), all the fields (T+D+A+C) and attribute and categories (A+C) query models, okapi BM25 retrieval strategy (BM25) and two types of ground truth (editorial and click logs).
 }
+\label{table:MMRP5}
 
 \begin{tabular}{lccccc}
 \toprule
@@ -472,8 +461,5 @@ In this approach we used the average similarity in the calculation of the new sc
 
 Further measurements and results for the rest of the retrieval models can be seen on \ref{table:mmrEd} and \ref{table:mmrCl} for MMR, \ref{table:mmrAlt1Ed} and \ref{table:mmrAlt1Cl} for MMRalt1, \ref{table:mmrAlt2Ed} and \ref{table:mmrAlt2Cl} for MMRalt2,  \ref{table:mmrAltAvgLast4Ed} and \ref{table:mmrAltAvgLast4Cl} for MMRaltAvgLast4.
 
-\section{Data fusion of diversified result experiment}
 
-The results in the 5.4 table using editorial evaluation show us an improvement on the precision when the diversified lists are fused. Also, combMAX outperforms even our best individual system (T+D+A+D).  Click logs evaluation from the other side shows a small difference in precision that doesn't indicate an actual improvement. However, combMAX's precision has a big boost of 0.1280 to 0.1700 which needs investigation to a future work. All in all, to answer the seventh research question, the fusion of diversified result lists improve the precision of the top five results, thus it performs better than the rest.
-
-The analysis of our results give us ideas for future work that is covered in the next chapter. The summary and conclusion of this work is provided as well.
+The analysis of our results gives us ideas for future work that are covered in the next chapter. The summary and conclusion of this work is provided as well.
