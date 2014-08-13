@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1407962620 "thesis.tex" "thesis.pdf" "thesis" 1407962622
+["pdflatex"] 1407966199 "thesis.tex" "thesis.pdf" "thesis" 1407966203
   "../chapters/1.Introduction.tex" 1407745653 11071 e7e71787d4155c8d6fb0408656d2397d ""
   "../chapters/2.RelatedWork.tex" 1405454649 7767 72b6f4a15e56dd90a0add5653ec2f653 ""
   "../chapters/3.Method.tex" 1407962601 19767 d8ee3592d27068b5fbffb39998b8dc1c ""
@@ -7,7 +7,7 @@
   "../chapters/5.Results.tex" 1407962026 11476 806f629a653ed8213e68736c872d0e38 ""
   "../chapters/6.Analysis.tex" 1407962066 26232 c2efc3ff18f1d997c7cbc0932790add8 ""
   "../chapters/7.Conclusion.tex" 1407936770 7016 734ad77ea2e3cfddae6ec740fc3621f2 ""
-  "../chapters/8.References.tex" 1406208842 10134 9d447b726e82306693ef8aa3ff0a098e ""
+  "../chapters/8.References.tex" 1407966169 10253 8f7e248c1a478b5eb782f952b6bce5ee ""
   "../chapters/9.Appendix.tex" 1407956261 26248 7a49843ba0ceaabf756bfc91c86bcac2 ""
   "../images/MMRMethodsP@5.pdf" 1402897002 55007 406f231e687ca67cb8f2e18949cd47d6 ""
   "../images/MMRMethodsP@5Relevance.pdf" 1402897016 55874 cdbc2b7bb459a8f5ab8fd7cc14cfa981 ""
@@ -59,13 +59,13 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/times.sty" 1156702453 857 6c716f26c5eadfb81029fcd6ce2d45e6 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "thesis.aux" 1407962621 40161 fd942c7a21c2b6a6f08b68d1f60a4ab3 ""
-  "thesis.out" 1407962621 3502 33b2033aae8aec717930a0bd289f95fd ""
-  "thesis.tex" 1407756130 1255 d82ed7e495ef954bbd00e3c6b2b00503 ""
-  "thesis.toc" 1407962621 4869 23c686c76e777d7992d32e7106762735 ""
+  "thesis.aux" 1407966203 40161 fd942c7a21c2b6a6f08b68d1f60a4ab3 ""
+  "thesis.out" 1407966203 3502 33b2033aae8aec717930a0bd289f95fd ""
+  "thesis.tex" 1407964215 1256 f3ddbb29ffc4b8c55717af85a371bda3 ""
+  "thesis.toc" 1407966203 4869 23c686c76e777d7992d32e7106762735 ""
   (generated)
   "thesis.log"
   "thesis.toc"
   "thesis.pdf"
-  "thesis.out"
   "thesis.aux"
+  "thesis.out"
