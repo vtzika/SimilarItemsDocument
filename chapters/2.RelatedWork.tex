@@ -1,20 +1,20 @@
 
-\chapter{Related Work}
+\chapter{Background}
 
 We distinguish between the following areas of research of related work: query modeling, data fusion, diversification, data fusion of diversified result lists. Additionally, we are presenting our contribution on these areas.
 
-\section{Query modeling}
+\section{Related work on query modeling}
 Related work on query representations exists from the early 90's. From the first Text REtrieval Conferences (TREC) query representation using terms of the topic and routing queries are used \cite{Trec1}, \cite{Trec2}. Deepening on the TREC conferences, in 1993, one of the TREC2 experiments was the combination of multiple representations and different treatment of key concepts of a topic like title, description etc. but the effect of adding the description in the title query model is not documented. However, it is proven that automatic creation of a query representation is as effective as a manually chosen one \cite{Trec2}.
 
 More work exists in \cite{CallanCroft} that different query representations are experimented like routing queries, Ad hoc and phrases queries and proved that combining multiple queries are useful. In 1957, Luhn \cite{Luhn} suggested that automatic text retrieval systems could be designed based on a comparison of content identifiers attached both to the stored texts and to the users’ information queries.
 
-\section{Diversification}
+\section{Related work on diversification}
 Related work in diversification of results started when it was understood that the ranking of the search engines was not enough to cover the information need of different users. Multiple ways of diversifying results were proposed. In 1998 Carbonell and Gordstein \cite{CarbonellGoldstein} introduced the Maximal Marginal Relevance (MMR) which takes into account the relevance of the document but also the similarity between the other documents. Agrawal et al. in \cite{Agrawal}, focused on how to diversify search results given ambiguous queries based on the category the results belong. Zhai and Laferty in \cite{ZhaiLaferty06} proposed to include some results for each subtopic of the search results to achieve diversification. In \cite{ChenKarger} they proposed to rank the results with a goal to maximize the probability of finding a relevant document among the top N so they can achieve perfect precision using probabilistic model from the Bayesian information retrieval techniques.
 
 Furthermore, an implementation on diversification exists in \cite{DrosouPitoura}. They demonstrate a tool which uses different kinds of diversification. The tool gives the opportunity to the user to select how to combine relevance with diversity. The choices for diversification of the results are based on context, novelty or different categories. The user can see how the results are affected by using diversification.
 
 
-\section{Data fusion}
+\section{Related work on data fusion}
 On the early years of TREC conferences the effectiveness of the result sets fusion was investigated as well. Belkin in \cite{Belkin}, conducted experiments with combSUM, combMNZ, combANZ, combMIN, combMAX data fusion techniques in two ways. The first was for the combination of query formulations and the second for the combination of two different data collections. They concluded that combining multiple pieces of evidence as query formulations is a beneficial way to increase retrieval effectiveness.
 
 Lee in \cite{Lee} influenced by Belkin investigated the evidence that different runs retrieve similar sets of relevant documents and different sets of non-relevant documents and how this evidence affects the system performance. Also, he evaluated existing data fusion techniques (combSUM, combMNZ, combANZ, combMIN, combMAX) and combGMNZ using different similarity algorithms as well as query formulations. It is proved that CombMNZ provides better retrieval effectiveness than the others because combMNZ favors documents retrieved by multiple runs. He also identified that in the case of combination of multiple runs, higher relevance overlap than non-relevance overlap on the retrieved set can improve system effectiveness. Lee did not identify the exact difference needed to improve effectiveness. Also, he did not use the most effective result sets available, but rather, selected his test sets at random. Furthermore, he used result sets from entirely different information retrieval systems. This does not simply vary the retrieval strategy used for the experiments, but all retrieval utilities and other systemic differences.
@@ -25,9 +25,7 @@ Beitzel et al \cite{Beitzel} experimented with high effective retrieval strategi
 
 Other related work on data fusion can be found on \cite{NurayCan} they explained and contacted experiments with three data fusion algorithms (Rank position, Boda count, and Condorcet). The first one takes into account the position of the results and the other two are voting the results. They also contact experiments using the best, bias and all systems.
 
-\section{Data fusion of diversified result lists}
-
-The first attempt to utilize data fusion for diversification was in \cite{LiangRenMaarten}. They proposed their fusion method and they prove that data fusion outperforms the existing diversification methods.
+The first attempt to utilize data fusion for diversification was in \cite{LiangRenMaarten}. They proposed their fusion method and they prove that data fusion outperforms the existing diversification methods. However, there is no related work on fusion of diversified results.
 
 \section{Our contribution}
 Our contribution to the query modeling topic is that we compare multiple retrieval systems taking into account different systemic properties like query models, retrieval strategies and preprocessing.

@@ -1,4 +1,4 @@
-\chapter{Method}
+\chapter{Methods}
 
 In this section, we describe the methods used in this approach.
 
@@ -6,7 +6,7 @@ In this section, we describe the methods used in this approach.
 
 Query modeling is the procedure to create a bag of words or a single word to represent the information need. This word (or bag of words) is the query. Query modeling creation involves the preprocessing step and the identification of tokens. Even if all previous steps are chosen and implemented to improve the accuracy of relevant results, the right query modeling will find highly related documents. The query can be consisted of the parts of a document in the case of existed structure or they can be consisted of phrases or selected terms. We explore three different kind of query models: a) query models created by the fields of the source classified, b) query models consisted of characteristic words of the source classified based on the log likelihood ratio of each word and c) queries created by the information given of an initially returned results (pseudo relevance feedback).
 
-\subsection{Source classified fields' query models}
+\subsection{Exploiting the document structure}
 
 The source classified that the user just clicked is a great resource that indicates user's information need. Thus, important information can be extracted from the source classified for creating query models. Classifieds typically consisted of title, description and category. Some classifieds also consist of arguments. Title summarizes the contents of the classified. Description has more details of the classified. Category is the category that they classified is part of. Arguments are depended on the classified. In some cases is the size of a product or the color and it is not required to be filled in. Combination of contents' fields are mapped to queries and multiple query models are created (see table \ref{table:QueryFields}).
 
@@ -35,13 +35,13 @@ T-Pseudo & title & no & no & yes\\
 \end{center}
 \end{table}
 
-\subsection{Pseudo Relevance Feedback}
+\subsection{Pseudo relevance feedback}
 
 The general idea behind relevance feedback is to take the results that are initially returned from a given query and to use information about whether or not those results are relevant to perform a new query. Pseudo relevance feedback provides an automated way to have feedback for a query. With the creation of a new query based on this feedback the retrieval performance improves.
 
 Although, pseudo relevance feedback improves the efficiency of the system, it is dependable to the original query since it assumes that the top k results are relevant. However, through a query expansion, some relevant documents missed in the initial round can then be retrieved to improve the overall performance. Clearly, the effect of this method strongly relies on the quality of selected expansion terms.
 
-\subsection{Log Likelihood Ratio}
+\subsection{Log likelihood ratio}
 
 One of query models is Log Likelihood Ratio (LLR).
 
@@ -169,7 +169,7 @@ $d_j$ : is the length of document $d_j$ in words
 
 L : is the average document length in the corpus
 
-\subsection{Probabilistic Language Modeling}
+\subsection{Probabilistic language modeling}
 
 Language Modeling is the task of estimating the probability distribution of linguistic units such as words, sentences, queries, utterances, or even complete documents. The probability distribution itself is referred to as a language model \cite{CroftLafferty}.
 
@@ -306,7 +306,7 @@ Algorithm:
 \end{enumerate}
 
 
-\section{Late Data Fusion}
+\section{Late data fusion}
 
 Based on \cite{Wilkins}, data fusion is the process of integration of multiple data and knowledge representing the same real-world object into a consistent, accurate, and useful representation. There are two approaches for the combination of data known as early fusion or late fusion. Early fusion is the combination of data prior to indexing. Thus the data aggregated and then retrieval model use this aggregated data as input. While late fusion assumes each source of data has associated with it some form of a ranking function, each of which can be independently queried. Once each source has been queried, the outputs of each of these queries can be aggregated together to form a final response to the initial query.
 

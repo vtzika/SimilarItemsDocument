@@ -1,4 +1,4 @@
-\chapter{Experiment Design}
+\chapter{Experimental Design}
 To answer the research questions, we conducted six different kind of experiments. In the following sections the different types of experiments, data, research questions and evaluation are presented.
 
 
@@ -97,7 +97,7 @@ Total Terms & 76184789 & 67405711 & 68567148 & 68002150 & 68173834 \\
 
 
 
-\section{Results Retrieval}
+\section{Results retrieval}
 
 Having indexes of the document collection described above, the next step is to create an Indri-style query file like listing 3.
 
@@ -140,7 +140,7 @@ Different retrieval systems are used for experimentation purposes. As it is ment
 \item{LM}
 \end{list}
 
-\section{Our Baseline}
+\section{Our baseline}
 The title of the classified is the summary of the classified. It's brief and consist of the most important information. For this reason, we use the title query model as baseline with okapi as retrieval strategy without stemming. We choose okapi which is proven that is a state of the art retrieval strategy and it performs better in our experiments in the comparison with the other two. We are not using stemming because it harms our retrieval effectiveness and this is proven from our experiments as well.
 
 
@@ -228,7 +228,7 @@ T-Pseudo & title & No & No & Yes \\
 We conducted this experiment to investigate which of the retrieval methods is performing better (second research question). All the query models available are part of the experiment. The three retrieval methods are already mentioned in the previous chapter.
 
 
-\subsection{Late Data Fusion}
+\subsection{Late data fusion}
 
 With the late data fusion experiments, we give answers to the third research question. We use late fusion techniques to fuse the individual models from the query modeling experiments and we produce new result lists. Then we compare their performance in contrast with individual models.
 
@@ -266,7 +266,7 @@ For the last experiment, using the same late fusion techniques as in the previou
 
 To evaluate our results and answer the research questions, we need to know which documents are relevant and if they are retrieved by the specific system. We follow two ways of evaluation. One method is using editorial ground truth and the other one is using click logs.
 
-\subsection{Editorial Evaluation}
+\subsection{Editorial evaluation}
 
 In this kind of evaluation, three assessors are provided with 100 user information needs which in our case are the contents of the visited classifieds and they evaluate a ranked list of documents (results of each system). They judge documents as relevant or not.
 
@@ -320,7 +320,7 @@ With the previous in mind, we take the following decisions:
 
 
 
-\subsection{Clicks Logs Evaluation}
+\subsection{Clicks logs evaluation}
 
 In this approach, we use click logs as an indication of relevance instead of the assessors judgment. Provided with click logs of four days, we create a relevant list of all the classifieds a user visited in one session after the visited classified. We count as relevant only the classifieds which five different users click on.
 
