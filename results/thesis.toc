@@ -42,7 +42,7 @@
 \contentsline {chapter}{\numberline {5}Results}{27}{chapter.5}
 \contentsline {section}{\numberline {5.1}Query modeling}{27}{section.5.1}
 \contentsline {section}{\numberline {5.2}Retrieval modeling}{28}{section.5.2}
-\contentsline {section}{\numberline {5.3}LDF}{28}{section.5.3}
+\contentsline {section}{\numberline {5.3}Late data fusion}{28}{section.5.3}
 \contentsline {section}{\numberline {5.4}Diversification}{29}{section.5.4}
 \contentsline {section}{\numberline {5.5}Fused diversified results}{30}{section.5.5}
 \contentsline {chapter}{\numberline {6}Analysis}{32}{chapter.6}

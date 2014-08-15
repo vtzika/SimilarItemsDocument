@@ -12,7 +12,7 @@ We preprocess the document collection and we convert it in lowercase, remove sto
 
 
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \caption{System Performance using precision at first five results measure (P@5) of title (T), title using LLR (T-LLR) query models with and without stemming using three retrieval strategies (BM25, LM, TfIdf) and two types of ground truth (editorial and click logs).}
 \label{table:stemmSystems}
@@ -41,7 +41,7 @@ We believe that the reason of the previous results is that stemming negatively a
 
 For further analysis, we are presenting the table \ref{table:stemmRelIrrel} with the count of relevant results retrieved only when stemming used and the count of relevant results retrieved only in the systems without stemming. We used the Okapi Title query model since we found the biggest difference in the performance.
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with title query model (T) and BM25 without stemming, number of examples retrieve uniquely this number of classifieds with title query model and BM25 with stemming (T-stemming).}
 \label{table:stemmRelIrrel}
@@ -166,7 +166,7 @@ The uniquely retrieved results from all the fields are more or equal than our ba
 We also observed that query model with attributes and category indicates the lowest precision in a comparison with the rest of the query models. We hypothesize that not enough information exists to attributes and category, thus the results will be negative. To further prove that assumption, we are presenting the table \ref{table:AcVsT} with the uniquely relevant results retrieved when attributes and category are only in the query model in a comparison with the baseline.
 
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \caption{Number of relevant classifieds retrieved on the top five results, number of examples retrieve uniquely this number of classifieds with attributes and category in query model and BM25 (A+C), number of examples retrieve uniquely this number of classifieds with title query model and BM25 (T).}
 \label{table:AcVsT}
@@ -274,7 +274,7 @@ The results of the table \ref{table:PseudoP5} show that in the case of LM and Tf
 
 In the results provided in results chapter, we can see that Okapi BM25 performs better than the other two. In the following table we further prove the same assumption. We present the count of relevant and irrelevant results retrieved of each retrieval strategy.
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \caption{Retrieval strategies (BM25, LM, TfIdf), count of relevant results and count of irrelevant results retrieved from each one.}
 
@@ -381,7 +381,7 @@ T+D+A+C-Pseudo & title, description, category, attributes & no & no & yes \\
 \begin{center}
 \footnotesize
 \caption{System Performance using precision at first five results measure (P@5) of combANZ keeping stable systemic differences in a comparison with combANZ merged from all systems using editorial and click logs evaluation. Query models used are title (T), title using LLR (T-LLR), title using stemming (T-stemming), title and description (T+D), all the fields (T+D+A+C) and attribute and categories (A+C), all the fields using LLR (T+D+A+C-LLR), all the fields using pseudo relevance feedback (T+D+A+C-pseudo) query models and two types of ground truth (editorial and click logs).}
-\label{table:combANZ}
+\label{table:combANZP5}
 \begin{tabular}{lcr}
 \midrule
  Query model & Editorial & Click logs \\
@@ -404,7 +404,7 @@ T+D+A+C-Pseudo & title, description, category, attributes & no & no & yes \\
 
 
 
-As you can see in the table \ref{table:combANZ}, the combANZ is improved when the systemic differences kept stable. However they didn't outperform the precision of the individuals (see table \ref{table:qmP5}).
+As you can see in the table \ref{table:combANZP5}, the combANZ is improved when the systemic differences kept stable. However they didn't outperform the precision of the individuals (see table \ref{table:qmP5}).
 
 
 Furthermore, more measures results are presented in table \ref{table:combANZ} using three retrieval models and two ground truth types (editorial and click logs).
