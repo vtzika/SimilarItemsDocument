@@ -29,13 +29,13 @@
 \contentsline {paragraph}{Query models with pseudo relevance feedback}{22}{section*.9}
 \contentsline {subsection}{\numberline {4.4.2}Retrieval model}{22}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}Late data fusion}{22}{subsection.4.4.3}
-\contentsline {subsection}{\numberline {4.4.4}Diversification}{23}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.4}Diversification}{22}{subsection.4.4.4}
 \contentsline {paragraph}{MMRalt1}{23}{section*.10}
 \contentsline {paragraph}{MMRalt2}{23}{section*.11}
 \contentsline {paragraph}{MMRaltAvgLst4}{23}{section*.12}
 \contentsline {subsection}{\numberline {4.4.5}Data fusion of diversified result}{23}{subsection.4.4.5}
 \contentsline {section}{\numberline {4.5}Evaluation}{23}{section.4.5}
-\contentsline {paragraph}{Editorial evaluation}{24}{section*.13}
+\contentsline {paragraph}{Editorial evaluation}{23}{section*.13}
 \contentsline {paragraph}{Clicks logs evaluation}{25}{section*.15}
 \contentsline {subsection}{\numberline {4.5.1}Measures}{25}{subsection.4.5.1}
 \contentsline {chapter}{\numberline {5}Results}{26}{chapter.5}
@@ -46,13 +46,13 @@
 \contentsline {section}{\numberline {5.5}Fused diversified results}{29}{section.5.5}
 \contentsline {chapter}{\numberline {6}Analysis}{31}{chapter.6}
 \contentsline {section}{\numberline {6.1}Stemming experiment}{31}{section.6.1}
-\contentsline {section}{\numberline {6.2}Query modeling}{32}{section.6.2}
-\contentsline {section}{\numberline {6.3}Retrieval methods}{36}{section.6.3}
-\contentsline {section}{\numberline {6.4}Late data fusion}{37}{section.6.4}
-\contentsline {section}{\numberline {6.5}Diversification}{40}{section.6.5}
-\contentsline {paragraph}{MMRalt1}{40}{section*.36}
-\contentsline {paragraph}{MMRalt2}{40}{section*.37}
-\contentsline {paragraph}{MMRaltAvgLast4}{40}{section*.38}
+\contentsline {section}{\numberline {6.2}Query modeling}{33}{section.6.2}
+\contentsline {section}{\numberline {6.3}Retrieval methods}{37}{section.6.3}
+\contentsline {section}{\numberline {6.4}Late data fusion}{38}{section.6.4}
+\contentsline {section}{\numberline {6.5}Diversification}{39}{section.6.5}
+\contentsline {paragraph}{MMRalt1}{40}{section*.35}
+\contentsline {paragraph}{MMRalt2}{40}{section*.36}
+\contentsline {paragraph}{MMRaltAvgLast4}{40}{section*.37}
 \contentsline {chapter}{\numberline {7}Conclusion}{41}{chapter.7}
 \contentsline {chapter}{\numberline {8}Appendix}{47}{chapter.8}
 \contentsline {section}{\numberline {8.1}Query modeling}{47}{section.8.1}

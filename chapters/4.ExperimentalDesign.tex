@@ -5,7 +5,7 @@ To answer our research questions, we conducted six different kind of experiments
 
 \section{Data and data gathering}
 
-Our data collection is a dataset of 7,502,132 classifieds (8.8 GB of memory) which is the total number of active classifieds in the period of 1 month in the site of Marktplaats. Also, we remove classifieds that are suspended from the system due to duplicates that we found in the preliminary evaluation. We choose 100 classifieds from the entire data collection to represent the previously visited classifieds thus the user's information need. The classifieds were uniformly formatted into an Standard Generalized Markup Language (SGML) structure with tags for each part of a classified, as can be seen in the following example.
+Our data collection is a dataset of 7,502,132 classifieds (8.8 GB of memory) which is the total number of active classifieds in the period of 1 month in the site of Marktplaats. Also, we remove classifieds that are suspended from the system as being duplicates. We choose 100 classifieds from the entire data collection to represent the previously visited classifieds, thus the user's information need or topic. The classifieds were uniformly formatted into a Standard Generalized Markup Language (SGML) structure with tags for each part of a classified, as can be seen in the listing 4.1.
 
 
 
@@ -32,10 +32,9 @@ Our data collection is a dataset of 7,502,132 classifieds (8.8 GB of memory) whi
 \end{code}
 }
 
+Indri search engine requires the SGML format. All classifieds have beginning, end markers and unique document number (DOCNO) field. Also, they consist of a title, a description, a price, a category and several attributes. 
 
-An example of a classified in our data collection is presented on listing 4.1. Indri search enginee requires the SGML format. All classifieds had beginning and end markers, and unique DOCNO id field. Also, they are consisted of a title, a description, a price, a category and several attributes. Attributes are not the same in each classified.
-
-With the use of Indri build Index application we build repositories from the document collection. The buildIndex application uses parameter files to create repositories of indexes of all the documents (see listing 4.2).
+With the use of Indri build Index application we build repositories from the document collection. The buildIndex application uses parameter files to create repositories of indexes of all the classifieds (see listing 4.2).
 
 \begin{code}[caption={Build index parameter file}]
  <parameters>
@@ -110,7 +109,7 @@ Having indexes of the document collection described above, the next step is to c
 </parameters>
 \end{code}
 
-We choose 100 classifieds from the entire data collection to represent the previously visited classifieds thus the user's information need or the topic. We create queries for each of the 100 visited classifieds in Indri-style query files like in listing 4.3. Also, creating the query involves parsing the visited classified which we aim to find relevant classifieds. Parsing has to be the same with the preprocessing of the document collection. Otherwise the accuracy of results will be affected negatively and the results will be not the desired. For example if we have a query term 'books' then it will be difficult to find documents relative to 'book'.
+From the 100 chosen classifieds, we create queries in Indri-style query files like in listing 4.3. Also, creating the query involves parsing the visited classified which we use as topic to find relevant classifieds. Parsing has to be the same as the preprocessing of the document collection. Otherwise the accuracy of results will be affected negatively and the results will not be optimal. For example, if we have a query term `books' then it will be difficult to find documents related to `book'.
 
 Next, the query file runs against our repositories using IndriRunQuery and retrieves the relevant list of classifieds. The output of the IndriRunQuery is a TREC style file called qrels consist of relevant classifieds to a query. These files are then input to trec\_eval, to calculate the precision in five first results.
 
@@ -136,7 +135,7 @@ Different retrieval systems are used for experimentation purposes. As it is ment
 \end{list}
 
 \section{Our baseline}
-The title of the classified is the summary of the classified. It's brief and consist of the most important information. For this reason, we use the title query model as baseline with okapi as retrieval strategy without stemming. We choose okapi which is proven that is a state of the art retrieval strategy and it performs better in our experiments in the comparison with the other two. We are not using stemming because it harms our retrieval effectiveness and this is proven from our experiments as well.
+The title of the classified is the summary of the classified. It's brief and consists of the most important information. For this reason, we use the title query model as baseline with okapi BM25 as retrieval strategy without stemming. We choose okapi which is proven that is a state of the art retrieval strategy and it performs better in our experiments in the comparison with the other two (LM, TfIdf). We are not using stemming because it harms our retrieval effectiveness as it is proven from our experiments.
 
 
 \section{Experiments}
@@ -145,15 +144,15 @@ The title of the classified is the summary of the classified. It's brief and con
 With this kind of experiment, we answer the first research question. For each of the three types of query models (classifieds' structure, discriminative terms, pseudo relevance feedback) we construct queries and submit them to our index of classifieds. We measure the performance of each system and we compare the results to evaluate the differences in performance between the models.
 
 
-To create a good query model, the query has to contain the most important information of the classified. But how can we find words that contribute the most important information from a classified? In the case of classifieds we have several fields that important information can be found. Also, a lot of noise exists in the fields which harms the retrieval efficiency. Discriminative terms can be extracted by the classifieds fields. Furthermore, we can get feedback from the result lists and create new queries to improve our retrieval performance.
+To create a good query model, the query has to contain the most important information from the classified. But how can we find words that contribute the most important information from a classified? In the case of classifieds we have several fields that important information can be found. Also, a lot of noise exists in the fields which harms the retrieval efficiency. Discriminative terms can be extracted by the classifieds fields. Furthermore, we can get feedback from the result lists and create new queries to improve our retrieval performance.
 
-As a first step, we conducted an experiment to answer the first research question using query models with classified’s fields terms. We compare the precision of the resulted classifieds lists with our baseline's precision. 
+As a first step, we conducted an experiment to answer the first research question using query models with classified fields terms. We compare the precision of the resulted classified lists with our baseline's precision. 
 
 Furthermore we make experiments using discriminative terms and pseudo relevance feedback that are presented in the following sections.
 
  \paragraph{Query models with discriminative terms}
 
-As it is described in the methodology chapter, we will use the LLR to create queries with discriminative terms. We use LLR to extract discriminative terms from the title and the entire classified. Given the visited classified's field or all fields as null corpora and the big dataset of 8.8 GB classifieds as normative corpora we will produce our queries.
+As it is described in the methodology chapter, we will use the LLR to create queries with discriminative terms. We use LLR to extract discriminative terms from the title and the entire classified. Given the visited classified field or all fields as null corpora and the big dataset of 8.8 GB classifieds as normative corpora we will produce our queries.
 
  \paragraph{Query models with pseudo relevance feedback}
 
@@ -162,7 +161,7 @@ The method we follow in order to use pseudo relevance feedback is the same metho
 
 
 \subsection{Retrieval model}
-We conducted this experiment to investigate which of the three retrieval models (Okapi BM25, TfIdf, LM) is performing better (second research question). All the query models available are part of the experiment. The three retrieval methods are already described in the methodology chapter.
+We conduct this experiment to investigate which of the three retrieval models (Okapi BM25, TfIdf, LM) is performing best (second research question). All the query models available are part of the experiment. The three retrieval methods are already described in the methodology chapter.
 
 
 \subsection{Late data fusion}
@@ -170,10 +169,10 @@ We conducted this experiment to investigate which of the three retrieval models 
 With the late data fusion experiments, we give answers to the third research question. We use late fusion techniques to fuse the individual models from the query modeling experiments and we produce new result lists. Then we compare their performance in contrast with individual models.
 
 
-Late fusion techniques are applied to individuals ranked lists to answer the third research question. We experiment with eight fusion techniques as explained in methodology chapter. Results compared with the individual models to answer the relevant research question. Since we don't have any weight in the queries, we use the MAP as a weight of a sample of classifieds runs. So we choose 50 random visited classifieds and we use the MAP of the trec results run. Then, we use the MAP as the weight to the WCombSUM, WcombMNZ and WcombWW methods.
+We experiment with eight fusion techniques as explained in the methodology chapter. The results were compared with the individual models to answer the relevant research question. Since we don't have any weight in the queries, we use the MAP as a weight of a sample of classified runs. So we choose 50 random visited classifieds and we use the MAP of the trec results run. Then, we use the MAP as the weight to the WCombSUM, WcombMNZ and WcombWW methods.
 
 \subsection{Diversification}
-To answer the fourth, fifth and sixth research question, we diversify first the query models from the first experiment with MMR method. Then we diversify with our three diversity methods explained in method section. To evaluate the results, we compare them with the MMR method.
+To answer the fourth, fifth and sixth research question, we diversify first the query models from the first experiment with MMR method. Then, we diversify with our three diversity methods explained in method section. To evaluate the results, we compare them with the MMR method.
 
 To evaluate these experiments we used the clicks logs evaluation method described below. The assessors evaluation is based one the assumption that we are searching relevant classifieds to the visited one. While in the case of diversification, we want more diversified results in case that we will increase the possibilities that will cover the information need of the user. Clicks indicate user's interest.
 
@@ -207,9 +206,9 @@ To evaluate our results and answer the research questions, we need to know which
 
 In this kind of evaluation, three assessors are provided with 100 topics which in our case are the contents of the visited classifieds and they evaluate a ranked list of documents (results of each system). They judge documents as relevant or not.
 
-Of the three components of a test collection (the document set, a set of information need statements called topics, and the relevance judgments that indicate which documents should be retrieved in response to a given topic) the relevance judgments are the most expensive to produce \cite{BuckleyDimmick}. Within big document collections, judging all documents as relevant or not is  almost impossible due to the time it requires. Also based on \cite{KalervoKekalainen} the greater the ranked position of a relevant document (of any relevance level) the less valuable it is for the user, because the less likely it is that the user will examine the document. It would therefore be desirable from the assessor viewpoint highly relevant documents to be ranked higher in the retrieval results lists.
+The three components of a test collection are the document set, a set of information need statements called topics, and the relevance judgments that indicate which documents should be retrieved in response to a given topic. Of these three components the relevance judgments are the most expensive to produce \cite{BuckleyDimmick}. Within big document collections, judging all documents as relevant or not is  almost impossible due to the time it requires. Also based on \cite{KalervoKekalainen} the greater the ranked position of a relevant document (of any relevance level) the less valuable it is for the user, because the less likely it is that the user will examine the document. It would therefore be desirable from the assessor viewpoint highly relevant documents to be ranked higher in the retrieval results lists.
 
-With the use of pooling we can judge only a subset of the retrievals output. In pooling, a set of documents to be judged for a topic (the "pool") is constructed by taking the union of the top $\lambda$ documents retrieved for the topic by a variety of different retrieval methods. Each document in the pool for a topic is judged for relevance, and documents not in the pool are assumed to be irrelevant to that topic.
+With the use of pooling we can judge only a subset of the results. In pooling, a set of documents to be judged for a topic (the `pool') is constructed by taking the union of the top $\lambda$ documents retrieved for the topic by a variety of different retrieval methods. Each document in the pool for a topic is judged for relevance, and documents not in the pool are assumed to be irrelevant to that topic.
 Sakai and Mitamura \cite{SakaiMitamura} report the outcome of their experiment to investigate the effect of reducing both the topic set size and the pool depth and they prove that using 100 topics with depth-30 pools generally yields fewer errors than using 30 topics with depth-100 pools. For this reason, we choose to have 100 topics with depth -30 pools.
 
 
@@ -247,7 +246,7 @@ With the previous in mind, we take the following decisions:
 \begin{list}{.}{}
 \item{To evaluate if a document is relevant or not  we need the opinion of potential users of our system.}
 \item{Assessors have to be Dutch speakers. Since my document collection is in Dutch, assessors must be native Dutch speakers as well. The understanding of the language has to be appropriate to understand entirely the contents of the document.}
-\item{Experts with different background in order to cover different kinds of users.}
+\item{We use as assessors experts with different background in order to cover different kinds of users.}
 \item{Assessors without any intentions for the project. We need unbiased answers on relevance.}
 \item{Binary value for judgment: zero for irrelevant and one for relevant documents.}
 \item{Assessor will see a list of relevant documents. However, this list will be unordered because we don't want to direct assessor's opinion about relevance.}
