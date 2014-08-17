@@ -21,41 +21,41 @@
 \contentsline {section}{\numberline {3.4}Late data fusion}{17}{section.3.4}
 \contentsline {chapter}{\numberline {4}Experimental Design}{18}{chapter.4}
 \contentsline {section}{\numberline {4.1}Data and data gathering}{18}{section.4.1}
-\contentsline {section}{\numberline {4.2}Results retrieval}{20}{section.4.2}
+\contentsline {section}{\numberline {4.2}Retrieving classifieds list}{20}{section.4.2}
 \contentsline {section}{\numberline {4.3}Our baseline}{21}{section.4.3}
 \contentsline {section}{\numberline {4.4}Experiments}{21}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Query modeling}{21}{subsection.4.4.1}
-\contentsline {paragraph}{Query models with discriminative terms}{22}{section*.9}
-\contentsline {paragraph}{Query models with pseudo relevance feedback}{22}{section*.10}
-\contentsline {subsection}{\numberline {4.4.2}Retrieval methods}{23}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Late data fusion}{23}{subsection.4.4.3}
+\contentsline {paragraph}{Query models with discriminative terms}{22}{section*.8}
+\contentsline {paragraph}{Query models with pseudo relevance feedback}{22}{section*.9}
+\contentsline {subsection}{\numberline {4.4.2}Retrieval model}{22}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Late data fusion}{22}{subsection.4.4.3}
 \contentsline {subsection}{\numberline {4.4.4}Diversification}{23}{subsection.4.4.4}
-\contentsline {paragraph}{MMRalt1}{24}{section*.12}
-\contentsline {paragraph}{MMRalt2}{24}{section*.13}
-\contentsline {paragraph}{MMRaltAvgLst4}{24}{section*.14}
-\contentsline {subsection}{\numberline {4.4.5}Data fusion of diversified result}{24}{subsection.4.4.5}
-\contentsline {section}{\numberline {4.5}Evaluation}{24}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Editorial evaluation}{24}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Clicks logs evaluation}{26}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Measures}{26}{subsection.4.5.3}
-\contentsline {chapter}{\numberline {5}Results}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Query modeling}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Retrieval modeling}{28}{section.5.2}
-\contentsline {section}{\numberline {5.3}Late data fusion}{28}{section.5.3}
-\contentsline {section}{\numberline {5.4}Diversification}{29}{section.5.4}
-\contentsline {section}{\numberline {5.5}Fused diversified results}{30}{section.5.5}
-\contentsline {chapter}{\numberline {6}Analysis}{32}{chapter.6}
-\contentsline {section}{\numberline {6.1}Stemming experiment}{32}{section.6.1}
-\contentsline {section}{\numberline {6.2}Query modeling}{33}{section.6.2}
-\contentsline {section}{\numberline {6.3}Retrieval methods}{37}{section.6.3}
-\contentsline {section}{\numberline {6.4}Late data fusion}{38}{section.6.4}
-\contentsline {section}{\numberline {6.5}Diversification}{41}{section.6.5}
-\contentsline {paragraph}{MMRalt1}{41}{section*.36}
-\contentsline {paragraph}{MMRalt2}{41}{section*.37}
-\contentsline {paragraph}{MMRaltAvgLast4}{41}{section*.38}
-\contentsline {chapter}{\numberline {7}Conclusion}{42}{chapter.7}
-\contentsline {chapter}{\numberline {8}Appendix}{48}{chapter.8}
-\contentsline {section}{\numberline {8.1}Query modeling}{48}{section.8.1}
-\contentsline {section}{\numberline {8.2}Late data fusion}{49}{section.8.2}
-\contentsline {section}{\numberline {8.3}Diversification}{50}{section.8.3}
-\contentsline {section}{\numberline {8.4}Data fusion of diversified result lists}{54}{section.8.4}
+\contentsline {paragraph}{MMRalt1}{23}{section*.10}
+\contentsline {paragraph}{MMRalt2}{23}{section*.11}
+\contentsline {paragraph}{MMRaltAvgLst4}{23}{section*.12}
+\contentsline {subsection}{\numberline {4.4.5}Data fusion of diversified result}{23}{subsection.4.4.5}
+\contentsline {section}{\numberline {4.5}Evaluation}{23}{section.4.5}
+\contentsline {paragraph}{Editorial evaluation}{24}{section*.13}
+\contentsline {paragraph}{Clicks logs evaluation}{25}{section*.15}
+\contentsline {subsection}{\numberline {4.5.1}Measures}{25}{subsection.4.5.1}
+\contentsline {chapter}{\numberline {5}Results}{26}{chapter.5}
+\contentsline {section}{\numberline {5.1}Query modeling}{26}{section.5.1}
+\contentsline {section}{\numberline {5.2}Retrieval modeling}{27}{section.5.2}
+\contentsline {section}{\numberline {5.3}Late data fusion}{27}{section.5.3}
+\contentsline {section}{\numberline {5.4}Diversification}{28}{section.5.4}
+\contentsline {section}{\numberline {5.5}Fused diversified results}{29}{section.5.5}
+\contentsline {chapter}{\numberline {6}Analysis}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Stemming experiment}{31}{section.6.1}
+\contentsline {section}{\numberline {6.2}Query modeling}{32}{section.6.2}
+\contentsline {section}{\numberline {6.3}Retrieval methods}{36}{section.6.3}
+\contentsline {section}{\numberline {6.4}Late data fusion}{37}{section.6.4}
+\contentsline {section}{\numberline {6.5}Diversification}{40}{section.6.5}
+\contentsline {paragraph}{MMRalt1}{40}{section*.36}
+\contentsline {paragraph}{MMRalt2}{40}{section*.37}
+\contentsline {paragraph}{MMRaltAvgLast4}{40}{section*.38}
+\contentsline {chapter}{\numberline {7}Conclusion}{41}{chapter.7}
+\contentsline {chapter}{\numberline {8}Appendix}{47}{chapter.8}
+\contentsline {section}{\numberline {8.1}Query modeling}{47}{section.8.1}
+\contentsline {section}{\numberline {8.2}Late data fusion}{48}{section.8.2}
+\contentsline {section}{\numberline {8.3}Diversification}{49}{section.8.3}
+\contentsline {section}{\numberline {8.4}Data fusion of diversified result lists}{53}{section.8.4}

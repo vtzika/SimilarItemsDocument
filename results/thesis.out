@@ -20,33 +20,31 @@
 \BOOKMARK [1][-]{section.3.4}{Late data fusion}{chapter.3}% 20
 \BOOKMARK [0][-]{chapter.4}{Experimental Design}{}% 21
 \BOOKMARK [1][-]{section.4.1}{Data and data gathering}{chapter.4}% 22
-\BOOKMARK [1][-]{section.4.2}{Results retrieval}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{Retrieving classifieds list}{chapter.4}% 23
 \BOOKMARK [1][-]{section.4.3}{Our baseline}{chapter.4}% 24
 \BOOKMARK [1][-]{section.4.4}{Experiments}{chapter.4}% 25
 \BOOKMARK [2][-]{subsection.4.4.1}{Query modeling}{section.4.4}% 26
-\BOOKMARK [2][-]{subsection.4.4.2}{Retrieval methods}{section.4.4}% 27
+\BOOKMARK [2][-]{subsection.4.4.2}{Retrieval model}{section.4.4}% 27
 \BOOKMARK [2][-]{subsection.4.4.3}{Late data fusion}{section.4.4}% 28
 \BOOKMARK [2][-]{subsection.4.4.4}{Diversification}{section.4.4}% 29
 \BOOKMARK [2][-]{subsection.4.4.5}{Data fusion of diversified result}{section.4.4}% 30
 \BOOKMARK [1][-]{section.4.5}{Evaluation}{chapter.4}% 31
-\BOOKMARK [2][-]{subsection.4.5.1}{Editorial evaluation}{section.4.5}% 32
-\BOOKMARK [2][-]{subsection.4.5.2}{Clicks logs evaluation}{section.4.5}% 33
-\BOOKMARK [2][-]{subsection.4.5.3}{Measures}{section.4.5}% 34
-\BOOKMARK [0][-]{chapter.5}{Results}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Query modeling}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.2}{Retrieval modeling}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.3}{Late data fusion}{chapter.5}% 38
-\BOOKMARK [1][-]{section.5.4}{Diversification}{chapter.5}% 39
-\BOOKMARK [1][-]{section.5.5}{Fused diversified results}{chapter.5}% 40
-\BOOKMARK [0][-]{chapter.6}{Analysis}{}% 41
-\BOOKMARK [1][-]{section.6.1}{Stemming experiment}{chapter.6}% 42
-\BOOKMARK [1][-]{section.6.2}{Query modeling}{chapter.6}% 43
-\BOOKMARK [1][-]{section.6.3}{Retrieval methods}{chapter.6}% 44
-\BOOKMARK [1][-]{section.6.4}{Late data fusion}{chapter.6}% 45
-\BOOKMARK [1][-]{section.6.5}{Diversification}{chapter.6}% 46
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 47
-\BOOKMARK [0][-]{chapter.8}{Appendix}{}% 48
-\BOOKMARK [1][-]{section.8.1}{Query modeling}{chapter.8}% 49
-\BOOKMARK [1][-]{section.8.2}{Late data fusion}{chapter.8}% 50
-\BOOKMARK [1][-]{section.8.3}{Diversification}{chapter.8}% 51
-\BOOKMARK [1][-]{section.8.4}{Data fusion of diversified result lists}{chapter.8}% 52
+\BOOKMARK [2][-]{subsection.4.5.1}{Measures}{section.4.5}% 32
+\BOOKMARK [0][-]{chapter.5}{Results}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Query modeling}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.2}{Retrieval modeling}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.3}{Late data fusion}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.4}{Diversification}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.5}{Fused diversified results}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Analysis}{}% 39
+\BOOKMARK [1][-]{section.6.1}{Stemming experiment}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.2}{Query modeling}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.3}{Retrieval methods}{chapter.6}% 42
+\BOOKMARK [1][-]{section.6.4}{Late data fusion}{chapter.6}% 43
+\BOOKMARK [1][-]{section.6.5}{Diversification}{chapter.6}% 44
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 45
+\BOOKMARK [0][-]{chapter.8}{Appendix}{}% 46
+\BOOKMARK [1][-]{section.8.1}{Query modeling}{chapter.8}% 47
+\BOOKMARK [1][-]{section.8.2}{Late data fusion}{chapter.8}% 48
+\BOOKMARK [1][-]{section.8.3}{Diversification}{chapter.8}% 49
+\BOOKMARK [1][-]{section.8.4}{Data fusion of diversified result lists}{chapter.8}% 50
