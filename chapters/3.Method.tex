@@ -205,21 +205,7 @@ $\lambda$ : 0.5 because we want to give the same weight to ranking order and div
 We introduce a flavor of MMR called Maximal Marginal Relevance alternative (MMRalt). It is a diversification method aims to re-rank the result set selecting the highest combination of a similarity score between pairs of classifieds and their initial rank. The main difference with MMR is that MMRalt will result a list with consecutive diversified pairs of classifieds. 
 
 
-\begin{algorithm}[H]
- \KwData{Given the initially ranked classifieds list}
- \KwResult{A diversified ranked classifieds list}
- initialization\;
- \While{we still have non selected classifieds in the given list}{
-	  choose the first one and expose it
-	  $already displayed list \gets classified in the first ranked position$
-	  calculate the MMR of documentX using as cosine similarity the similarity between X and already displayed
-	  expose the classifiedZ with the max(MMR) as the next one
-	  $already displayed \gets classifiedZ$
-	  remove the classifiedZ of the given list
- }
- \caption{MMRalt algorithm.}
-\end{algorithm}
-
+\bigskip
 
 \begin{equation}
 MMRAlt\overset{def}{=}\operatorname*{Arg \, \max}_{D_{i}\in R\ \setminus S}[\lambda(Sim_{1}(Di,Q)-(1-\lambda) Sim_{2}(D_{i},D_{s})]
@@ -239,22 +225,30 @@ $\lambda$ : 0.5 because we want to give the same weight to ranking order and div
 
 
 
+
+
+
+\bigskip
+
+\begin{algorithm}[H]
+ \KwData{Given the initially ranked classifieds list}
+ \KwResult{A diversified ranked classifieds list}
+ initialization\;
+ \While{we still have non selected classifieds in the given list}{
+	  choose the first one and expose it
+	  $already displayed list \gets classified in the first ranked position$
+	  calculate the MMR of documentX using as cosine similarity the similarity between X and already displayed
+	  expose the classifiedZ with the max(MMR) as the next one
+	  $already displayed \gets classifiedZ$
+	  remove the classifiedZ of the given list
+ }
+ \caption{MMRalt algorithm.}
+\end{algorithm}
+
 \subsection{Maximal marginal relevance alternative 2}
 
 We introduce an alternative flavor of the MMR algorithm, the Maximal Marginal Relevance alternative 2 (MMRalt2). This diversification method aims to re-rank the result set selecting the highest combination of a similarity score between classifieds and their initial rank. The difference between MMR and MMRalt2 is that this technique does not take into account the maximum cosine similarity between a classifies and the displayed classifieds. Instead it takes into account the average MMRalt2 score between a document and the previously displayed classifieds. The difference between MMRalt and MMRalt2 is that the later aims to have the entire result list diversified. The hypothesis here is that taking into account the average MMR score between all the previously ranked classifieds and the next proposed classified is a better indication of similarity than the MAX cosine similarity. 
-
-Algorithm:
-
-\begin{enumerate}
-\item while we still have documents not selected
-	\begin{enumerate}
-	\item choose the first one and expose it
-	\item already displayed list : document0 (document in the first ranked position)
-	\item MMRx=AVG of MMRx,ds where ds set of the displayed documents
-	\item expose the documentZ with the max(MMRx) as the next one
-	\item already displayed: list with document0, documentZ
-	\end{enumerate}
-\end{enumerate}
+\bigskip
 
 \begin{equation}
 MMRAlt2\overset{def}{=}\operatorname*{Arg \, \max}_{D_{i}\in R,s}
@@ -265,22 +259,50 @@ R :Rank list of documents retrieved by an IR system
 
 S :is the previous document selected
 
+\bigskip
+
+\begin{algorithm}[H]
+ \KwData{Given the initially ranked classifieds list}
+ \KwResult{A diversified ranked classifieds list}
+ initialization\;
+ \While{we still have non selected classifieds in the given list}{
+	  choose the first one and expose it
+	  $doc_selected \gets classified in the first ranked position$
+	  $MMRx \gets AVG(MMR_doc_selected)$
+	  expose the classifiedZ with the max(MMR) as the next one
+	  $already displayed \gets classifiedZ$
+	  remove the classifiedZ of the given list
+ }
+ \caption{MMRalt2 algorithm.}
+\end{algorithm}
+
+
+
+
 
 \subsection{Maximal marginal relevance within a range of four classifieds}
 
 This proposed algorithm which we called MMRalt2last4 is a diversification method which aims to re-rank the result set by selecting the highest combination of a similarity score between the last four re-ranked classifieds and their initial rank. The main difference between the other approaches is that this technique takes into account only the last four selected documents instead of all of them. The resulted list with similar classifieds that Marktplaats decided to expose will be in pages consisting of four classifieds. With our proposed way, each page will always consist of diversified results and the initial rank will not be affected as much as the other approaches. 
 
-Algorithm:
-\begin{enumerate}
-\item while we still have documents not selected
-	\begin{enumerate}
-	\item choose the first one and expose it
-	\item already displayed list : document0 (document in the first ranked position)
-	\item MMRx=AVG of MMRx,ds where ds set of the four last displayed documents
-	\item expose the documentZ with the max(MMRx) as the next one
-	\item already displayed: list with document0, documentZ
-	\end{enumerate}
-\end{enumerate}
+\bigskip
+
+\begin{algorithm}[H]
+ \KwData{Given the initially ranked classifieds list}
+ \KwResult{A diversified ranked classifieds list}
+ initialization\;
+ $doc_selected \gets classified in the first ranked position$
+	  
+ \While{we still have non selected classifieds in the given list}{
+	  choose the first one and expose it
+	  $doc_selected \gets classified in the first ranked position$
+	  $MMRx \gets AVG(MMR_doc_selected_last_four)$
+	  expose the classifiedZ with the max(MMR) as the next one
+	  $already displayed \gets classifiedZ$
+	  remove the classifiedZ of the given list
+ }
+ \caption{MMRalt2last4 algorithm.}
+\end{algorithm}
+
 
 
 \section{Late data fusion}
